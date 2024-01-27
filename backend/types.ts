@@ -48,3 +48,42 @@ export type LevelFilters = {
 export type FilterDb = {
     [room: string] : Array<Array<LevelFilters>|Array<Difficulties>>
 }
+
+export type CooldownDb ={
+    [room: string] : number
+}
+
+export type StyleFilters = {
+    "1st&substream" : boolean,
+    "2nd style" : boolean,
+    "3rd style" : boolean,
+    "4th style" : boolean,
+    "5th style" : boolean,
+    "6th style" : boolean,
+    "7th style" : boolean,
+    "8th style" : boolean,
+    "9th style" : boolean,
+    "10th style" : boolean,
+    "IIDX RED" : boolean,
+    "HAPPY SKY" : boolean,
+    "DistorteD" : boolean,
+    "GOLD" : boolean,
+    "DJ TROOPERS" : boolean,
+    "EMPRESS" : boolean,
+    "SIRIUS" : boolean,
+    "Resort Anthem" : boolean,
+    "Lincle" : boolean,
+    "tricoro" : boolean,
+    "SPADA" : boolean,
+    "PENDUAL" : boolean,
+    "copula" : boolean,
+    "SINOBUZ" : boolean,
+    "CANNON BALLERS" : boolean,
+    "Rootage" : boolean,
+    "HEROIC VERSE" : boolean,
+    "BISTROVER" : boolean,
+    "CastHour" : boolean,
+    "RESIDENT" : boolean,
+    "EPOLIS" : boolean
+
+}

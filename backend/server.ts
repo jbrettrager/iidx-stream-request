@@ -3,7 +3,8 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
-import { Song, SongDatabase, FilterDb } from "./types";
+import { prod_tt_sasportal } from "googleapis/build/src/apis/prod_tt_sasportal";
+import { Song, SongDatabase, FilterDb, CooldownDb } from "./types";
 
 app.use(cors());
 
@@ -21,6 +22,7 @@ const rooms = io.of("/").adapter.rooms;
 const songDatabase: SongDatabase = {};
 const filterDb: FilterDb = {};
 const requestDb: SongDatabase = {};
+const cooldownDb: CooldownDb = {};
 
 function createSongDb(csv: string): Song[] {
   console.log("DB BEING CREATED!!");
@@ -58,6 +60,7 @@ function checkExisting(requestList: Array<Song>, song: Song): boolean {
   if (requestList === undefined || requestList.length === 0) return found;
   else {
     for (let i = 0; i < requestList.length; i++) {
+      console.log(song.title, requestList[i].title);
       if (
         song.title === requestList[i].title &&
         song.requestDiff === requestList[i].requestDiff
@@ -82,6 +85,7 @@ io.on("connection", (socket: any) => {
       data.defaultLevelFilters,
       data.defaultDifficulties,
     ];
+    cooldownDb[data.roomName] = data.cooldown;
     console.log("created songdb for room", data.roomName);
     console.log(rooms);
     io.emit("update_room_list", { roomList });
@@ -89,11 +93,11 @@ io.on("connection", (socket: any) => {
   });
 
   socket.on("join_room", (data: any) => {
-    let name = data.roomName;
-    socket.join(name);
+    socket.join(data.roomName);
     socket.emit("initial_room_updates", {
-      songs: songDatabase[name],
-      filters: [filterDb[name][0], filterDb[name][1]],
+      songs: songDatabase[data.roomName],
+      filters: [filterDb[data.roomName][0], filterDb[data.roomName][1]],
+      cooldown: cooldownDb[data.roomName],
     });
     console.log("JOINED", rooms);
   });
@@ -114,17 +118,31 @@ io.on("connection", (socket: any) => {
       "to room",
       data.room
     );
-    if (checkExisting(requestDb[data.room], data.song)) {
-      io.to(data.room).emit("request_exists", {
-        error: "Request already exists.",
-      });
-    } else {
-      io.to(data.room).emit("receive_request", { song: data.song });
-    }
+    if (!requestDb[data.room]) {
+      requestDb[data.room] = [data.song];
+    } else requestDb[data.room].push(data.song);
+    io.to(data.room).emit("receive_request", { song: data.song });
+    io.to(data.room).emit("update_requests", {
+      requestList: requestDb[data.room],
+    });
   });
 
   socket.on("request_to_backend", (data: any) => {
     requestDb[data.roomName] = data.requestList;
+  });
+
+  socket.on("remove_from_requests", (data: any) => {
+    requestDb[data.roomName] = data.requestList;
+    io.to(data.roomName).emit("update_requests", {
+      requestList: data.requestList,
+    });
+    console.log(data.requestList, "removed song");
+  });
+
+  socket.on("send_cooldown", (data: any) => {
+    console.log(data);
+    cooldownDb[data.roomName] = data.cooldown;
+    io.to(data.roomName).emit("update_cooldown", { cooldown: data.cooldown });
   });
 });
 
