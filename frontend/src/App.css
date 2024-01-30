@@ -1,0 +1,11 @@
+body {
+  font-family: 'Oxanium', sans-serif;
+  color:whitesmoke;
+  background-color: #272727;
+}
+
+
+.none {
+  user-select: none;
+}
+

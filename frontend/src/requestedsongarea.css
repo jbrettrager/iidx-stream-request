@@ -1,0 +1,1012 @@
+.requested-song {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid gray;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 31.25rem;
+  max-width: 31.25rem;
+  height: auto;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.diff-number {
+  display:flex;
+  border-right: 2px solid rgb(70, 70, 70);
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding-right: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, rgb(131, 131, 131) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  color: transparent;
+  width: 30px;
+  height: 40px;
+  align-items: center;
+}
+
+.song-name {
+  padding-left: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, rgb(131, 131, 131) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  color: transparent;
+}
+
+.song-name-leggendaria {
+  padding-left: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, rgb(255, 0, 212) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  color: transparent;
+}
+
+.song-name-epolis {
+  padding-left: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #9bfa00 89.06%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  color: transparent;
+}
+
+.first.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/1-500px.jpg");
+  background-position: center;
+}
+.second.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/2-500px.jpg");
+  background-position: center;
+}
+.third.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/3-500px.jpg");
+  background-position: center;
+}
+.fourth.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/4-500px.jpg");
+  background-position: center;
+}
+.fifth.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/5-500px.jpg");
+  background-position: center;
+}
+.sixth.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/6-500px.jpg");
+  background-position: center;
+}
+.seventh.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/7-500px.jpg");
+  background-position: center;
+}
+.eighth.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/8-500px.jpg");
+  background-position: center;
+}
+.ninth.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/9-500px.jpg");
+  background-position: center;
+}
+.tenth.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/10-500px.jpg");
+  background-position: center;
+}
+.IIDX.RED.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/11-500px.jpg");
+  background-position: center;
+}
+.HAPPY.SKY.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/12-500px.jpg");
+  background-position: center;
+}
+.DistorteD.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/13-500px.jpg");
+  background-position: center;
+}
+.GOLD.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/14-500px.png");
+  background-position: center;
+}
+.DJ.TROOPERS.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/15-500px.jpg");
+  background-position: center;
+}
+.EMPRESS.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/16-480px.jpg");
+  background-position: center;
+}
+.SIRIUS.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/17-500px.jpg");
+  background-position: center;
+}
+.Resort.Anthem.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/18-500px.png");
+  background-position-y: center;
+}
+.Lincle.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/19-500px.jpg");
+  background-position: center;
+}
+.tricoro.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/20-500px.jpg");
+  background-position: center;
+}
+.SPADA.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/21-500px.jpg");
+  background-position: center;
+}
+.PENDUAL.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/22-500px.png");
+  background-position: center;
+}
+.copula.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/23-500px.jpg");
+  background-position: center;
+}
+.SINOBUZ.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/24-500px.jpg");
+  background-position: center;
+}
+.CANNON.BALLERS.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/25-500px.jpg");
+  background-position: center;
+}
+.Rootage.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/26-500px.jpg");
+  background-position: center;
+}
+.HEROIC.VERSE.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/27-500px.jpg");
+  background-position: center;
+}
+
+.BISTROVER.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/28-500px.jpg");
+  background-position: center;
+}
+.CastHour.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/29-500px.jpg");
+  background-position: center;
+}
+.RESIDENT.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/30-500px.jpg");
+  background-position: center;
+}
+
+.EPOLIS.requested-song.beginner {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/31.png");
+  background-position: center;
+}
+.first.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/1-500px.jpg");
+  background-position: center;
+}
+.second.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/2-500px.jpg");
+  background-position: center;
+}
+.third.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/3-500px.jpg");
+  background-position: center;
+}
+.fourth.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/4-500px.jpg");
+  background-position: center;
+}
+.fifth.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/5-500px.jpg");
+  background-position: center;
+}
+.sixth.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/6-500px.jpg");
+  background-position: center;
+}
+.seventh.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/7-500px.jpg");
+  background-position: center;
+}
+.eighth.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/8-500px.jpg");
+  background-position: center;
+}
+.ninth.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/9-500px.jpg");
+  background-position: center;
+}
+.tenth.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/10-500px.jpg");
+  background-position: center;
+}
+.IIDX.RED.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/11-500px.jpg");
+  background-position: center;
+}
+.HAPPY.SKY.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/12-500px.jpg");
+  background-position: center;
+}
+.DistorteD.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/13-500px.jpg");
+  background-position: center;
+}
+.GOLD.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/14-500px.png");
+  background-position: center;
+}
+.DJ.TROOPERS.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/15-500px.jpg");
+  background-position: center;
+}
+.EMPRESS.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/16-480px.jpg");
+  background-position: center;
+}
+.SIRIUS.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/17-500px.jpg");
+  background-position: center;
+}
+.Resort.Anthem.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/18-500px.png");
+  background-position-y: center;
+}
+.Lincle.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/19-500px.jpg");
+  background-position: center;
+}
+.tricoro.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/20-500px.jpg");
+  background-position: center;
+}
+.SPADA.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/21-500px.jpg");
+  background-position: center;
+}
+.PENDUAL.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/22-500px.png");
+  background-position: center;
+}
+.copula.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/23-500px.jpg");
+  background-position: center;
+}
+.SINOBUZ.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/24-500px.jpg");
+  background-position: center;
+}
+.CANNON.BALLERS.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/25-500px.jpg");
+  background-position: center;
+}
+.Rootage.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/26-500px.jpg");
+  background-position: center;
+}
+.HEROIC.VERSE.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/27-500px.jpg");
+  background-position: center;
+}
+
+.BISTROVER.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/28-500px.jpg");
+  background-position: center;
+}
+.CastHour.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/29-500px.jpg");
+  background-position: center;
+}
+.RESIDENT.requested-song.normal {
+  background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/30-500px.jpg");
+  background-position: center;
+}
+
+.EPOLIS.requested-song.normal {
+  background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/31.png");
+  background-position: center;
+}
+.first.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/1-500px.jpg");
+  background-position: center;
+}
+.second.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/2-500px.jpg");
+  background-position: center;
+}
+.third.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/3-500px.jpg");
+  background-position: center;
+}
+.fourth.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/4-500px.jpg");
+  background-position: center;
+}
+.fifth.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/5-500px.jpg");
+  background-position: center;
+}
+.sixth.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/6-500px.jpg");
+  background-position: center;
+}
+.seventh.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/7-500px.jpg");
+  background-position: center;
+}
+.eighth.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/8-500px.jpg");
+  background-position: center;
+}
+.ninth.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/9-500px.jpg");
+  background-position: center;
+}
+.tenth.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/10-500px.jpg");
+  background-position: center;
+}
+.IIDX.RED.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/11-500px.jpg");
+  background-position: center;
+}
+.HAPPY.SKY.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/12-500px.jpg");
+  background-position: center;
+}
+.DistorteD.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/13-500px.jpg");
+  background-position: center;
+}
+.GOLD.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/14-500px.png");
+  background-position: center;
+}
+.DJ.TROOPERS.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/15-500px.jpg");
+  background-position: center;
+}
+.EMPRESS.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/16-480px.jpg");
+  background-position: center;
+}
+.SIRIUS.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/17-500px.jpg");
+  background-position: center;
+}
+.Resort.Anthem.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/18-500px.png");
+  background-position-y: center;
+}
+.Lincle.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/19-500px.jpg");
+  background-position: center;
+}
+.tricoro.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/20-500px.jpg");
+  background-position: center;
+}
+.SPADA.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/21-500px.jpg");
+  background-position: center;
+}
+.PENDUAL.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/22-500px.png");
+  background-position: center;
+}
+.copula.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/23-500px.jpg");
+  background-position: center;
+}
+.SINOBUZ.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/24-500px.jpg");
+  background-position: center;
+}
+.CANNON.BALLERS.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/25-500px.jpg");
+  background-position: center;
+}
+.Rootage.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/26-500px.jpg");
+  background-position: center;
+}
+.HEROIC.VERSE.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/27-500px.jpg");
+  background-position: center;
+}
+
+.BISTROVER.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/28-500px.jpg");
+  background-position: center;
+}
+.CastHour.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/29-500px.jpg");
+  background-position: center;
+}
+.RESIDENT.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/30-500px.jpg");
+  background-position: center;
+}
+
+.EPOLIS.requested-song.hyper {
+  background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/31.png");
+  background-position: center;
+}
+.first.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/1-500px.jpg");
+  background-position: center;
+}
+.second.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/2-500px.jpg");
+  background-position: center;
+}
+.third.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/3-500px.jpg");
+  background-position: center;
+}
+.fourth.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/4-500px.jpg");
+  background-position: center;
+}
+.fifth.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/5-500px.jpg");
+  background-position: center;
+}
+.sixth.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/6-500px.jpg");
+  background-position: center;
+}
+.seventh.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/7-500px.jpg");
+  background-position: center;
+}
+.eighth.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/8-500px.jpg");
+  background-position: center;
+}
+.ninth.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/9-500px.jpg");
+  background-position: center;
+}
+.tenth.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/10-500px.jpg");
+  background-position: center;
+}
+.IIDX.RED.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/11-500px.jpg");
+  background-position: center;
+}
+.HAPPY.SKY.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/12-500px.jpg");
+  background-position: center;
+}
+.DistorteD.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/13-500px.jpg");
+  background-position: center;
+}
+.GOLD.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/14-500px.png");
+  background-position: center;
+}
+.DJ.TROOPERS.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/15-500px.jpg");
+  background-position: center;
+}
+.EMPRESS.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/16-480px.jpg");
+  background-position: center;
+}
+.SIRIUS.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/17-500px.jpg");
+  background-position: center;
+}
+.Resort.Anthem.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/18-500px.png");
+  background-position-y: center;
+}
+.Lincle.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/19-500px.jpg");
+  background-position: center;
+}
+.tricoro.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/20-500px.jpg");
+  background-position: center;
+}
+.SPADA.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/21-500px.jpg");
+  background-position: center;
+}
+.PENDUAL.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/22-500px.png");
+  background-position: center;
+}
+.copula.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/23-500px.jpg");
+  background-position: center;
+}
+.SINOBUZ.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/24-500px.jpg");
+  background-position: center;
+}
+.CANNON.BALLERS.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/25-500px.jpg");
+  background-position: center;
+}
+.Rootage.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/26-500px.jpg");
+  background-position: center;
+}
+.HEROIC.VERSE.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/27-500px.jpg");
+  background-position: center;
+}
+
+.BISTROVER.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/28-500px.jpg");
+  background-position: center;
+}
+.CastHour.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/29-500px.jpg");
+  background-position: center;
+}
+.RESIDENT.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/30-500px.jpg");
+  background-position-y: center;
+}
+
+.EPOLIS.requested-song.another {
+  background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/31.png");
+  background-position: center;
+}
+
+.first.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/1-500px.jpg");
+  background-position: center;
+}
+.second.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/2-500px.jpg");
+  background-position: center;
+}
+.third.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/3-500px.jpg");
+  background-position: center;
+}
+.fourth.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/4-500px.jpg");
+  background-position: center;
+}
+.fifth.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/5-500px.jpg");
+  background-position: center;
+}
+.sixth.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/6-500px.jpg");
+  background-position: center;
+}
+.seventh.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/7-500px.jpg");
+  background-position: center;
+}
+.eighth.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/8-500px.jpg");
+  background-position: center;
+}
+.ninth.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/9-500px.jpg");
+  background-position: center;
+}
+.tenth.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/10-500px.jpg");
+  background-position: center;
+}
+.IIDX.RED.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/11-500px.jpg");
+  background-position: center;
+}
+.HAPPY.SKY.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/12-500px.jpg");
+  background-position: center;
+}
+.DistorteD.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/13-500px.jpg");
+  background-position: center;
+}
+.GOLD.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/14-500px.png");
+  background-position: center;
+}
+.DJ.TROOPERS.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/15-500px.jpg");
+  background-position: center;
+}
+.EMPRESS.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/16-480px.jpg");
+  background-position: center;
+}
+.SIRIUS.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/17-500px.jpg");
+  background-position: center;
+}
+.Resort.Anthem.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/18-500px.png");
+  background-position-y: center;
+}
+.Lincle.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/19-500px.jpg");
+  background-position: center;
+}
+.tricoro.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/20-500px.jpg");
+  background-position: center;
+}
+.SPADA.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/21-500px.jpg");
+  background-position: center;
+}
+.PENDUAL.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/22-500px.png");
+  background-position: center;
+}
+.copula.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/23-500px.jpg");
+  background-position: center;
+}
+.SINOBUZ.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/24-500px.jpg");
+  background-position: center;
+}
+.CANNON.BALLERS.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/25-500px.jpg");
+  background-position: center;
+}
+.Rootage.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/26-500px.jpg");
+  background-position: center;
+}
+.HEROIC.VERSE.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/27-500px.jpg");
+  background-position: center;
+}
+
+.BISTROVER.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/28-500px.jpg");
+  background-position: center;
+}
+.CastHour.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/29-500px.jpg");
+  background-position: center;
+}
+.RESIDENT.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/30-500px.jpg");
+  background-position: center;
+}
+
+.EPOLIS.requested-song.leggendaria {
+  background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./img/versions/31.png");
+  background-position: center;
+}

@@ -1,0 +1,292 @@
+.host-view {
+    background-color:#090020;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+.filters {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  margin-bottom: 50px;
+}
+
+.filters.host {
+  width: 100%;
+}
+
+.filters-title {
+    text-align: center;
+}
+
+.send-button {
+    padding-top: 30px;
+    align-self: center;
+}
+
+.diamond {
+  display: flex;
+  margin-top: 1.563rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 6.25rem;
+  height: 1.563rem;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    #000000 15.1%
+  );
+  box-shadow: 0px 3px 1px 1px rgba(255, 255, 255, 0.247) inset;
+  align-items: center;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.diamond:hover {
+    background: linear-gradient(0deg, rgba(218, 254, 0, 0.4) 0%, rgba(218, 254, 0, 0) 100%);
+}
+
+.level {
+  border: 2px solid #A3A3A3;
+}
+
+.level.active {
+  background: #FF7C02;
+  border: 2px solid #A3A3A3;
+}
+
+.diamond.beginner-button {
+  width: 9.375rem;
+  border: 0.125rem solid #05ff00;
+}
+.diamond.beginner-button.active {
+  width: 9.375rem;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 255, 0, 0.6) 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
+  border: 0.125rem solid #05ff00;
+}
+.diamond.normal-button {
+  width: 9.375rem;
+  border: 0.125rem solid #1400ff;
+}
+.diamond.normal-button.active {
+  width: 9.375rem;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 0, 255, 0.6) 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
+  border: 0.125rem solid #1400ff;
+}
+.diamond.hyper-button {
+  width: 9.375rem;
+  border: 0.125rem solid #faff00;
+}
+.diamond.hyper-button.active {
+  width: 9.375rem;
+  background: linear-gradient(
+    0deg,
+    rgba(250, 255, 0, 0.6) 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
+  border: 0.125rem solid #faff00;
+}
+.diamond.another-button {
+  width: 9.375rem;
+  border: 0.125rem solid #ff0000;
+}
+.diamond.another-button.active {
+  width: 9.375rem;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 0.6) 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
+  border: 0.125rem solid #ff0000;
+}
+.diamond.leggendaria-button {
+  width: 9.375rem;
+  border: 0.125rem solid #ff00e6;
+}
+.diamond.leggendaria-button.active {
+  width: 9.375rem;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 0, 230, 0.6) 0%,
+    rgba(255, 0, 230, 0) 100%
+  );
+  border: 0.125rem solid #ff00e6;
+}
+
+.inner-text {
+  pointer-events:none;
+  font-weight: 600
+}
+
+.button-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-host {
+  background-color: rgb(32, 0, 0);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.url-area {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  background:rgb(32, 0, 0);
+  text-align: center;
+}
+
+.header-message{
+ font-size: 2.0rem; 
+ font-weight: 700;
+}
+
+.filters.host {
+  background: linear-gradient(0deg, #090020 0%, rgb(32, 0, 0) 100%);
+}
+
+.guest-url {
+  width: 80%;
+  font-size: 1.6rem;
+  text-align: center;
+  background-color:  rgb(9, 0, 32);
+  color: whitesmoke;
+  user-select:none;
+  font-family: 'Oxanium', sans-serif;
+}
+
+.header-host-title {
+  font-size: 2rem;
+}
+
+.last {
+  margin-bottom: 10px;
+}
+
+.sent-requests {
+  width: 31.25rem;
+}
+
+
+.diamond-send {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    #000000 15.1%
+  );
+  box-shadow: 0px 3px 1px 1px rgba(255, 255, 255, 0.247) inset;
+  align-items: center;
+  width: 15rem;
+  height: 2rem;
+  user-select: none;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid #A3A3A3;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.diamond-send:hover {
+  background: linear-gradient(0deg, rgba(218, 254, 0, 0.4) 0%, rgba(218, 254, 0, 0) 100%);
+}
+.diamond-sent {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(0deg, rgba(218, 254, 0, 0.8) 0%, rgba(218, 254, 0, 0) 100%);
+  box-shadow: 0px 3px 1px 1px rgba(255, 255, 255, 0.247) inset;
+  align-items: center;
+  width: 15rem;
+  height: 2rem;
+  user-select: none;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid #A3A3A3;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.diamond-is-column {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    #000000 15.1%
+  );
+  box-shadow: 0px 3px 1px 1px rgba(255, 255, 255, 0.247) inset;
+  align-items: center;
+  width: 15rem;
+  height: 2rem;
+  user-select: none;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid #A3A3A3;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.diamond-is-column:hover {
+  background: linear-gradient(0deg, rgba(254, 0, 254, 0.658) 0%, rgba(218, 254, 0, 0) 100%);
+}
+
+.diamond-cooldown {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    #000000 15.1%
+  );
+  box-shadow: 0px 3px 1px 1px rgba(255, 255, 255, 0.247) inset;
+  align-items: center;
+  width: 15rem;
+  height: 2rem;
+  user-select: none;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid #A3A3A3;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.diamond-cooldown:hover {
+  background: linear-gradient(0deg, rgba(0, 254, 254, 0.678) 0%, rgba(218, 254, 0, 0) 100%);
+}
+
+.cooldown-number {
+  font-family: "Keania One" sans-serif;
+}
+
+.cooldown-area {
+  display: flex;
+
+}

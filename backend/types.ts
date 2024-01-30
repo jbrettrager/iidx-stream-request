@@ -87,3 +87,16 @@ export type StyleFilters = {
     "EPOLIS" : boolean
 
 }
+
+export type IsColumnDb = {
+    [room: string]: boolean
+
+}
+
+export type SentRequestDb = {
+    [room: string]: SentRequest
+}
+
+export type SentRequest = {
+    [user: string]: Array<Song>
+}

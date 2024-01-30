@@ -1,0 +1,200 @@
+.request {
+    display: flex; 
+    flex-direction: column; 
+    width: 100%;
+    background-color: #0f0027;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+.request:hover {
+  background: linear-gradient(0deg, rgba(28, 221, 255, 0.575) 0%, rgba(218, 254, 0, 0) 100%);
+}
+
+
+
+
+.title-artist-diff {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-artist-box {
+  margin-left: 20px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+
+.selectable-difficulties {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.request-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, #ffffff 0%, rgb(131, 131, 131) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .request-name.leggendaria {
+    font-size: 1.4rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, #ffffff 0%, rgb(255, 0, 212) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .request-name.epolis {
+    font-size: 1.4rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, #ffffff 0%, #9bfa00 89.06%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+.send-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    background: linear-gradient(180deg, #ffffff 0%, rgb(131, 131, 131) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .send-name.leggendaria {
+    font-size: 1.4rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, #ffffff 0%, rgb(255, 0, 212) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .send-name.epolis {
+    font-size: 1.4rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, #ffffff 0%, #9bfa00 89.06%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+
+
+  .beginner-select {
+    width: 150px;
+    height: 20px;
+    background: url("./img/beginner.png"); 
+    opacity: 60%;
+    background-size: 150px;
+  }
+  .normal-select {
+    width: 150px;
+    height: 20px;
+    background: url("./img/normal.png");
+    opacity: 60%;
+    background-size: 150px;
+  }
+  .hyper-select {
+    width: 150px;
+    height: 20px;
+    background: url("./img/hyper.png");
+    opacity: 60%;
+    background-size: 150px;
+  }
+  .another-select {
+    width: 150px;
+    height: 20px;
+    background: url("./img/another.png");
+    opacity: 60%;
+    background-size: 150px;
+  }
+  .leggendaria-select {
+    width: 150px;
+    height: 20px;
+    background: url("./img/leggendaria.png");
+    opacity: 60%;
+    background-size: 150px;
+  }
+
+
+
+  .send-panel {
+    width: 50%;
+    display: flex;
+    background-color:#272727;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 2%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border: 1px solid white;
+  }
+
+  .difficulty-number {
+    font-weight: 600;
+    text-align: center;
+  }
+  .send-request-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 3rem;
+  }
+
+  .send-request-button:hover {
+    background-color: #a3a3a3
+  }
+
+  .selected {
+    opacity: 100%
+  }
+
+  .highlight {
+    opacity: 100%
+  }
+  .unhighlight {
+    opacity: 30%
+  }
+
+  .diff-and-level {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .diff-and-level.beginner-focused {
+    border: 2px solid #6BC316
+  }
+  .diff-and-level.normal-focused {
+    border: 2px solid #1e3ab4
+  }
+  .diff-and-level.hyper-focused {
+    border: 2px solid #9E8121
+  }
+  .diff-and-level.another-focused {
+    border: 2px solid #B90408
+  }
+  .diff-and-level.leggendaria-focused {
+    border: 2px solid #7E09A7
+  }
+
+
+  .level-number {
+    font-size: 1.2rem;
+  }

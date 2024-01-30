@@ -1,0 +1,53 @@
+.host-panel {
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+
+}
+
+.host-panel-title {
+    font-size: 2rem;
+    padding-bottom: 20px;
+}
+
+.csv-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.room-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.csv-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .csv-input {
+    width: 70%;
+    color:white;
+    background:#090020;
+  }
+
+  .create-room-name {
+    font-family: 'Oxanium', sans-serif;
+    width: 70%;
+    font-size: 3rem;
+    color: white;
+    background: rgb(32, 0, 0);
+    text-align:center;
+  }
+  
+  .room-area {
+    width: 100%;
+  }

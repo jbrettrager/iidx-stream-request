@@ -3,8 +3,7 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
-import { prod_tt_sasportal } from "googleapis/build/src/apis/prod_tt_sasportal";
-import { Song, SongDatabase, FilterDb, CooldownDb } from "./types";
+import { Song, SongDatabase, FilterDb, CooldownDb, IsColumnDb, SentRequestDb, SentRequest } from "./types";
 
 app.use(cors());
 
@@ -23,6 +22,8 @@ const songDatabase: SongDatabase = {};
 const filterDb: FilterDb = {};
 const requestDb: SongDatabase = {};
 const cooldownDb: CooldownDb = {};
+const isColumnDb: IsColumnDb = {}
+const sentRequestDb: SentRequestDb = {}
 
 function createSongDb(csv: string): Song[] {
   console.log("DB BEING CREATED!!");
@@ -30,7 +31,6 @@ function createSongDb(csv: string): Song[] {
   const csvData: string = csv;
   const splitted: Array<String> = csvData.split(/\n/);
   splitted.shift();
-  let songKey = 1;
   while (splitted[0]) {
     let shifted = splitted.shift();
     if (shifted) {
@@ -49,7 +49,6 @@ function createSongDb(csv: string): Song[] {
         requestDiff: "",
       };
       songDb.push(currentSong);
-      songKey++;
     }
   }
   return songDb;
@@ -85,7 +84,9 @@ io.on("connection", (socket: any) => {
       data.defaultLevelFilters,
       data.defaultDifficulties,
     ];
-    cooldownDb[data.roomName] = data.cooldown;
+    cooldownDb[data.roomName] = data.cooldown
+    isColumnDb[data.roomName] = data.isColumn
+    sentRequestDb[data.roomName] = {}
     console.log("created songdb for room", data.roomName);
     console.log(rooms);
     io.emit("update_room_list", { roomList });
@@ -94,14 +95,31 @@ io.on("connection", (socket: any) => {
 
   socket.on("join_room", (data: any) => {
     socket.join(data.roomName);
+    if (requestDb[data.roomName]) {
     socket.emit("initial_room_updates", {
       songs: songDatabase[data.roomName],
       filters: [filterDb[data.roomName][0], filterDb[data.roomName][1]],
       cooldown: cooldownDb[data.roomName],
-    });
+      requestList: requestDb[data.roomName],
+      isColumn: isColumnDb[data.roomName]
+    });}
+    else {
+      socket.emit("initial_room_updates", {
+        songs: songDatabase[data.roomName],
+        filters: [filterDb[data.roomName][0], filterDb[data.roomName][1]],
+        cooldown: cooldownDb[data.roomName],
+        requestList: [],
+        isColumn: isColumnDb[data.roomName] 
+      });
+    }
     console.log("JOINED", rooms);
   });
 
+  socket.on("stream_display_change", (data: any) => {
+    isColumnDb[data.roomName] = data.isColumn
+    io.to(data.roomName).emit("update_stream_view", {isColumn: data.isColumn})
+  })
+  
   socket.on("host_update_filters", (data: any) => {
     filterDb[data.roomName] = [data.levelFilters, data.difficulties];
     io.to(data.roomName).emit("send_updated_filters", {
@@ -118,6 +136,7 @@ io.on("connection", (socket: any) => {
       "to room",
       data.room
     );
+
     if (!requestDb[data.room]) {
       requestDb[data.room] = [data.song];
     } else requestDb[data.room].push(data.song);
