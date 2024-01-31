@@ -36,9 +36,11 @@ export default function HostView(props: any) {
   const [isColumn, setIsColumn] = useState<boolean>(true);
   const [cooldown, setCooldown] = useState<number>(60);
   const [sentMessage, setSentMessage] = useState<boolean>(false);
+  const [joinSuccessful, setJoinSuccessful] = useState<boolean>(false)
   const [sentMessageTimer, setSentMessageTimer] = useState<number>(0);
   const [currentCooldown, setCurrentCooldown] = useState<number>(cooldown);
-  const roomName = useParams().roomName.split("-")[0];
+  const roomName = useParams().roomName?.split("-")[0];
+  const hostKey = useParams().roomName?.split("-")[1];
   let guestUrl = "http://localhost:3000/guest/";
   let streamViewUrl = "http://localhost:3000/streamview/";
   guestUrl += roomName;
@@ -91,8 +93,16 @@ export default function HostView(props: any) {
   }, [isColumn]);
 
   useEffect(() => {
+    socket.on("room_join_host", onRoomJoinHost);
+
+    return () => {
+      socket.off("room_join_host", onRoomJoinHost);
+    };
+  }, [joinSuccessful]);
+
+  useEffect(() => {
     document.body.style.backgroundColor = "#090020";
-    socket.emit("join_room", { roomName });
+    socket.emit("join_room_host", { roomName, hostKey });
   }, []);
 
   useEffect(() => {
@@ -107,6 +117,11 @@ export default function HostView(props: any) {
       clearInterval(timer);
     };
   }, [sentMessageTimer]);
+
+  function onRoomJoinHost(data) {
+    setJoinSuccessful(data.join)
+    socket.emit("join_room", {roomName})
+  }
 
   function onInitialRoomUpdatesLevelFilters(data) {
     setLevelFilters(data.filters[0]);
@@ -234,6 +249,7 @@ export default function HostView(props: any) {
   }
 
   return (
+    !joinSuccessful ? <div className="none">Host link is incorrect or room does not exist.</div> : 
     <div className="host-view none">
       <div className="header-host">
         <div className="header-host-title">Hosting:</div>
@@ -480,6 +496,7 @@ export default function HostView(props: any) {
                 onClick={removeRequest}
                 song={song}
                 room={roomName}
+                isStreamview={false}
               />
             );
           })}

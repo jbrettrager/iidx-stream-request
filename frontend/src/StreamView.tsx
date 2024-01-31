@@ -9,12 +9,14 @@ import "./StreamView.css"
 export default function StreamView() {
   const [isColumn, setIsColumn] = useState<boolean>(true);
   const [requestList, setRequestList] = useState<Array<Song>>([]);
-  const roomName = useParams().roomName.split("-")[0]
+  const [joinSuccessful, setJoinSuccessful] = useState<boolean>(false)
+  const roomName = useParams().roomName?.split("-")[0]
+  const hostKey = useParams().roomName?.split("-")[1]
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgba(32, 0, 0, 0)";
-    socket.emit("join_room", {
-      roomName,
+    socket.emit("join_room_streamview", {
+      roomName, hostKey
     });
   }, []);
 
@@ -36,6 +38,19 @@ export default function StreamView() {
         socket.off("update_stream_view", onUpdateStreamView)
     }
   }, [isColumn])
+
+  useEffect(() => {
+    socket.on("room_join_streamview", onRoomJoinStreamview)
+
+    return () => {
+        socket.off("room_join_streamview", onRoomJoinStreamview)
+    }
+  }, [joinSuccessful])
+
+  function onRoomJoinStreamview(data) {
+    setJoinSuccessful(true)
+    socket.emit("join_room", {roomName})
+  }
 
   function onUpdateRequests(data) {
     setRequestList(data.requestList);
@@ -60,8 +75,8 @@ export default function StreamView() {
 
 
   return (
-    <div className={isColumn ? "stream-view column" : "stream-view row"}>
-        {requestList[0] ? (requestList.map(song =>  <RequestedSong onClick={removeRequest} song={song} room={roomName} />)) : <div>Waiting for requests...</div>}
+    !joinSuccessful ? <div className="failed-join">Room does not exist or link is incorrect.</div> : <div className={isColumn ? "stream-view column" : "stream-view row"}>
+        {requestList[0] ? (requestList.map(song =>  <RequestedSong onClick={removeRequest} song={song} room={roomName} isStreamview={true} />)) : <div>Waiting for requests...</div>}
     </div>
   );
 }

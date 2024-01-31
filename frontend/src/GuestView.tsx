@@ -49,6 +49,7 @@ export default function GuestView(props: any) {
   const [cooldown, setCooldown] = useState<number>(60);
   const [allFiltersChecked, setAllFiltersChecked] = useState<boolean>(true);
   const [noFiltersChecked, setNoFiltersChecked] = useState<boolean>(false);
+  const [joinSuccessful, setJoinSuccessful] = useState<boolean>(false)
   const [cooldownRemaining, setCooldownRemaining] = useState<number>(0);
   const [isOnCooldown, setIsOnCooldown] = useState<boolean>(false);
   const [pageNumber, setPageNumber] = useState<number>(0);
@@ -184,11 +185,23 @@ export default function GuestView(props: any) {
   }, [cooldown]);
 
   useEffect(() => {
+    socket.on("room_guest_join", onRoomGuestJoin);
+    return () => {
+      socket.off("room_guest_join", onRoomGuestJoin);
+    };
+  }, [joinSuccessful]);
+
+  useEffect(() => {
     document.body.style.backgroundColor = "rgb(32, 0, 0)";
-    socket.emit("join_room", {
+    socket.emit("join_room_guest", {
       roomName,
     });
   }, []);
+
+  function onRoomGuestJoin (data) {
+    setJoinSuccessful(data.join)
+    socket.emit("join_room", {roomName})
+  }
 
   function onInitialRoomUpdatesOriginal(data) {
     setOriginalList(data.songs);
@@ -599,7 +612,7 @@ export default function GuestView(props: any) {
   }
 
   return (
-    <div className="guest-view none">
+    !joinSuccessful ? <div className="none">Room {roomName} does not exist.</div> :<div className="guest-view none">
       <div className="header-guest">
         <div className="guest-title">Submitting Requests for:</div>
         <div className="room-name">{roomName}</div>
@@ -1145,6 +1158,7 @@ export default function GuestView(props: any) {
                       isOnCooldown,
                       setIsOnCooldown,
                       setCooldownRemaining,
+                      cooldownRemaining
                     ]}
                     request={requestList}
                   />

@@ -3,7 +3,7 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
-import { Song, SongDatabase, FilterDb, CooldownDb, IsColumnDb, SentRequestDb, SentRequest } from "./types";
+import { Song, SongDatabase, FilterDb, CooldownDb, IsColumnDb, SentRequestDb, SentRequest, HostKeysDb } from "./types";
 
 app.use(cors());
 
@@ -24,6 +24,7 @@ const requestDb: SongDatabase = {};
 const cooldownDb: CooldownDb = {};
 const isColumnDb: IsColumnDb = {}
 const sentRequestDb: SentRequestDb = {}
+const hostKeysDb: any = {}
 
 function createSongDb(csv: string): Song[] {
   console.log("DB BEING CREATED!!");
@@ -54,30 +55,64 @@ function createSongDb(csv: string): Song[] {
   return songDb;
 }
 
-function checkExisting(requestList: Array<Song>, song: Song): boolean {
-  let found = false;
-  if (requestList === undefined || requestList.length === 0) return found;
+function checkRoomName(roomName: string): boolean {
+  let result = false;
+  if (roomList[0] === undefined) return result;
   else {
-    for (let i = 0; i < requestList.length; i++) {
-      console.log(song.title, requestList[i].title);
-      if (
-        song.title === requestList[i].title &&
-        song.requestDiff === requestList[i].requestDiff
-      )
-        found = true;
+    for (let i = 0; i < roomList.length; i++) {
+      if (roomList[i] === roomName) result = true;
     }
-    return found;
+    return result;
   }
 }
 
+
 io.on("connection", (socket: any) => {
-  console.log("User connected:", socket.id);
   io.to(socket.id).emit("get_room_list", { roomList });
+
+  socket.on("landing_lobby", (data: any) => {
+    socket.join("lobby")
+    io.to("lobby").emit("lobby_join_rooms", {roomList})
+  })
+
+  socket.on("join_room_host", (data: any) => {
+    let roomName: string = data.roomName
+    let hostKey: string = data.hostKey
+      if (hostKeysDb[roomName] !== "") {
+        console.log("room exists")
+        if (hostKeysDb[roomName] === hostKey) {
+          console.log("key match", hostKeysDb[roomName], hostKey)
+          io.to(socket.id).emit("room_join_host", {join: true})
+        }
+        else {
+          console.log("KEY MISMATCH!")
+        }
+      }
+      else if (hostKeysDb[roomName] === "") {
+        console.log("room doesnt exist, creating", roomName)
+        hostKeysDb[roomName] = hostKey
+        io.to(socket.id).emit("room_join_host", {join: true})
+      }
+  });
+
+  socket.on("join_room_guest", (data:any) => {
+    if (checkRoomName(data.roomName)) {
+      io.to(socket.id).emit("room_guest_join", {join:true})
+    }
+  })
+
+  socket.on("join_room_streamview", (data:any) => {
+    let roomName = data.roomName
+    let sentKey = data.hostKey
+    if (hostKeysDb[roomName] === sentKey) {
+      io.to(socket.id).emit("room_join_streamview", {join: true})
+    }
+  })
 
   socket.on("create_room", (data: any) => {
     const newRoom: string = data.roomName;
-    socket.join(newRoom);
     roomList.push(newRoom);
+    io.to("lobby").emit("room_created", {roomList})
     const database: Array<Song> = createSongDb(data.csvData);
     songDatabase[data.roomName] = database;
     filterDb[data.roomName] = [
@@ -87,8 +122,7 @@ io.on("connection", (socket: any) => {
     cooldownDb[data.roomName] = data.cooldown
     isColumnDb[data.roomName] = data.isColumn
     sentRequestDb[data.roomName] = {}
-    console.log("created songdb for room", data.roomName);
-    console.log(rooms);
+    hostKeysDb[data.roomName] = ""
     io.emit("update_room_list", { roomList });
     io.to(data.roomName).emit("roomData", { csv: songDatabase[data.roomName] });
   });
@@ -114,6 +148,7 @@ io.on("connection", (socket: any) => {
     }
     console.log("JOINED", rooms);
   });
+  
 
   socket.on("stream_display_change", (data: any) => {
     isColumnDb[data.roomName] = data.isColumn
@@ -129,14 +164,6 @@ io.on("connection", (socket: any) => {
   });
 
   socket.on("send_request", (data: any) => {
-    console.log(
-      "Request received for:",
-      data.song,
-      data.difficulty,
-      "to room",
-      data.room
-    );
-
     if (!requestDb[data.room]) {
       requestDb[data.room] = [data.song];
     } else requestDb[data.room].push(data.song);
@@ -155,11 +182,9 @@ io.on("connection", (socket: any) => {
     io.to(data.roomName).emit("update_requests", {
       requestList: data.requestList,
     });
-    console.log(data.requestList, "removed song");
   });
 
   socket.on("send_cooldown", (data: any) => {
-    console.log(data);
     cooldownDb[data.roomName] = data.cooldown;
     io.to(data.roomName).emit("update_cooldown", { cooldown: data.cooldown });
   });

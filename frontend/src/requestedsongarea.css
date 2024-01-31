@@ -14,7 +14,7 @@
 }
 
 .diff-number {
-  display:flex;
+  display: flex;
   border-right: 2px solid rgb(70, 70, 70);
   font-size: 1.8rem;
   font-weight: 700;
@@ -73,37 +73,37 @@
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/1-500px.jpg");
-  background-position: center;
+  background-position: center 10%;
 }
 .second.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/2-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .third.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/3-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 .fourth.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/4-500px.jpg");
-  background-position: center;
+  background-position: center 70%;
 }
 .fifth.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/5-500px.jpg");
-  background-position: center;
+    background-position: center 65%;
 }
 .sixth.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/6-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .seventh.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
@@ -133,13 +133,13 @@
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/11-500px.jpg");
-  background-position: center;
+    background-position: center 35%;
 }
 .HAPPY.SKY.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/12-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .DistorteD.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
@@ -157,7 +157,7 @@
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/15-500px.jpg");
-  background-position: center;
+    background-position: center 90%;
 }
 .EMPRESS.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
@@ -174,8 +174,8 @@
 .Resort.Anthem.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/18-500px.png");
-  background-position-y: center;
+    url("./img/versions/18-500px.jpg");
+  background-position: center 70%;
 }
 .Lincle.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
@@ -187,7 +187,7 @@
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/20-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .SPADA.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
@@ -198,38 +198,38 @@
 .PENDUAL.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/22-500px.png");
-  background-position: center;
+    url("./img/versions/22-500px.jpg");
+  background-position: center 38%;
 }
 .copula.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/23-500px.jpg");
-  background-position: center;
+  background-position: center 48%;
 }
 .SINOBUZ.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/24-500px.jpg");
-  background-position: center;
+  background-position: center 30%;
 }
 .CANNON.BALLERS.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/25-500px.jpg");
-  background-position: center;
+    url("./img/versions/25-2-500px.jpg");
+  background-position: center 35%;
 }
 .Rootage.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/26-500px.jpg");
-  background-position: center;
+  background-position: center 35%;
 }
 .HEROIC.VERSE.requested-song.beginner {
   background: linear-gradient(360deg, #00ff29 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/27-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 
 .BISTROVER.requested-song.beginner {
@@ -261,37 +261,37 @@
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/1-500px.jpg");
-  background-position: center;
+  background-position: center 10%;
 }
 .second.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/2-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .third.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/3-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 .fourth.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/4-500px.jpg");
-  background-position: center;
+  background-position: center 70%;
 }
 .fifth.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/5-500px.jpg");
-  background-position: center;
+    background-position: center 65%;
 }
 .sixth.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/6-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .seventh.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -321,13 +321,13 @@
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/11-500px.jpg");
-  background-position: center;
+    background-position: center 35%;
 }
 .HAPPY.SKY.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/12-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .DistorteD.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -345,7 +345,7 @@
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/15-500px.jpg");
-  background-position: center;
+    background-position: center 90%;
 }
 .EMPRESS.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -362,8 +362,8 @@
 .Resort.Anthem.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/18-500px.png");
-  background-position-y: center;
+    url("./img/versions/18-500px.jpg");
+  background-position: center 70%;
 }
 .Lincle.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -375,7 +375,7 @@
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/20-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .SPADA.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -386,38 +386,38 @@
 .PENDUAL.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/22-500px.png");
-  background-position: center;
+    url("./img/versions/22-500px.jpg");
+  background-position: center 38%;
 }
 .copula.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/23-500px.jpg");
-  background-position: center;
+  background-position: center 48%;
 }
 .SINOBUZ.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/24-500px.jpg");
-  background-position: center;
+  background-position: center 30%;
 }
 .CANNON.BALLERS.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/25-500px.jpg");
-  background-position: center;
+    url("./img/versions/25-2-500px.jpg");
+  background-position: center 35%;
 }
 .Rootage.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/26-500px.jpg");
-  background-position: center;
+  background-position: center 35%;
 }
 .HEROIC.VERSE.requested-song.normal {
   background: linear-gradient(360deg, #4e10ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/27-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 
 .BISTROVER.requested-song.normal {
@@ -449,37 +449,37 @@
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/1-500px.jpg");
-  background-position: center;
+  background-position: center 10%;
 }
 .second.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/2-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .third.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/3-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 .fourth.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/4-500px.jpg");
-  background-position: center;
+  background-position: center 70%;
 }
 .fifth.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/5-500px.jpg");
-  background-position: center;
+    background-position: center 65%;
 }
 .sixth.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/6-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .seventh.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
@@ -509,13 +509,13 @@
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/11-500px.jpg");
-  background-position: center;
+    background-position: center 35%;
 }
 .HAPPY.SKY.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/12-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .DistorteD.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
@@ -533,7 +533,7 @@
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/15-500px.jpg");
-  background-position: center;
+    background-position: center 90%;
 }
 .EMPRESS.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
@@ -550,8 +550,8 @@
 .Resort.Anthem.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/18-500px.png");
-  background-position-y: center;
+    url("./img/versions/18-500px.jpg");
+  background-position: center 70%;
 }
 .Lincle.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
@@ -563,7 +563,7 @@
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/20-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .SPADA.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
@@ -574,38 +574,38 @@
 .PENDUAL.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/22-500px.png");
-  background-position: center;
+    url("./img/versions/22-500px.jpg");
+  background-position: center 38%;
 }
 .copula.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/23-500px.jpg");
-  background-position: center;
+  background-position: center 48%;
 }
 .SINOBUZ.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/24-500px.jpg");
-  background-position: center;
+  background-position: center 30%;
 }
 .CANNON.BALLERS.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/25-500px.jpg");
-  background-position: center;
+    url("./img/versions/25-2-500px.jpg");
+  background-position: center 35%;
 }
 .Rootage.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/26-500px.jpg");
-  background-position: center;
+  background-position: center 40%;
 }
 .HEROIC.VERSE.requested-song.hyper {
   background: linear-gradient(360deg, #ffe500 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/27-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 
 .BISTROVER.requested-song.hyper {
@@ -637,37 +637,37 @@
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/1-500px.jpg");
-  background-position: center;
+  background-position: center 10%;
 }
 .second.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/2-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .third.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/3-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 .fourth.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/4-500px.jpg");
-  background-position: center;
+  background-position: center 70%;
 }
 .fifth.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/5-500px.jpg");
-  background-position: center;
+  background-position: center 65%;
 }
 .sixth.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/6-500px.jpg");
-  background-position: center;
+  background-position: center 60%;
 }
 .seventh.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
@@ -697,13 +697,13 @@
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/11-500px.jpg");
-  background-position: center;
+  background-position: center 35%;
 }
 .HAPPY.SKY.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/12-500px.jpg");
-  background-position: center;
+  background-position: center 60%;
 }
 .DistorteD.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
@@ -721,25 +721,25 @@
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/15-500px.jpg");
-  background-position: center;
+  background-position: center 90%;
 }
 .EMPRESS.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/16-480px.jpg");
-  background-position: center;
+  background-position: center 30%;
 }
 .SIRIUS.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/17-500px.jpg");
-  background-position: center;
+  background-position: center 38%;
 }
 .Resort.Anthem.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/18-500px.png");
-  background-position-y: center;
+    url("./img/versions/18-500px.jpg");
+  background-position: center 70%;
 }
 .Lincle.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
@@ -751,7 +751,7 @@
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/20-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .SPADA.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
@@ -762,38 +762,38 @@
 .PENDUAL.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/22-500px.png");
-  background-position: center;
+    url("./img/versions/22-500px.jpg");
+  background-position: center 38%;
 }
 .copula.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/23-500px.jpg");
-  background-position: center;
+  background-position: center 48%;
 }
 .SINOBUZ.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/24-500px.jpg");
-  background-position: center;
+  background-position: center 30%;
 }
 .CANNON.BALLERS.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/25-500px.jpg");
-  background-position: center;
+    url("./img/versions/25-2-500px.jpg");
+  background-position: center 35%;
 }
 .Rootage.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/26-500px.jpg");
-  background-position: center;
+  background-position: center 35%;
 }
 .HEROIC.VERSE.requested-song.another {
   background: linear-gradient(360deg, #b30000 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/27-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 
 .BISTROVER.requested-song.another {
@@ -826,37 +826,37 @@
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/1-500px.jpg");
-  background-position: center;
+  background-position: center 10%;
 }
 .second.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/2-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .third.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/3-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 .fourth.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/4-500px.jpg");
-  background-position: center;
+  background-position: center 70%;
 }
 .fifth.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/5-500px.jpg");
-  background-position: center;
+  background-position: center 65%;
 }
 .sixth.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/6-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .seventh.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -886,13 +886,13 @@
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/11-500px.jpg");
-  background-position: center;
+    background-position: center 35%;
 }
 .HAPPY.SKY.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/12-500px.jpg");
-  background-position: center;
+    background-position: center 60%;
 }
 .DistorteD.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -910,7 +910,7 @@
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/15-500px.jpg");
-  background-position: center;
+    background-position: center 90%;
 }
 .EMPRESS.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -927,8 +927,8 @@
 .Resort.Anthem.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/18-500px.png");
-  background-position-y: center;
+    url("./img/versions/18-500px.jpg");
+  background-position: center 70%;
 }
 .Lincle.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -940,7 +940,7 @@
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/20-500px.jpg");
-  background-position: center;
+  background-position: center 85%;
 }
 .SPADA.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
@@ -951,38 +951,38 @@
 .PENDUAL.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/22-500px.png");
-  background-position: center;
+    url("./img/versions/22-500px.jpg");
+  background-position: center 38%;
 }
 .copula.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/23-500px.jpg");
-  background-position: center;
+  background-position: center 48%;
 }
 .SINOBUZ.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/24-500px.jpg");
-  background-position: center;
+  background-position: center 30%;
 }
 .CANNON.BALLERS.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("./img/versions/25-500px.jpg");
-  background-position: center;
+    url("./img/versions/25-2-500px.jpg");
+  background-position: center 35%;
 }
 .Rootage.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/26-500px.jpg");
-  background-position: center;
+  background-position: center 35%;
 }
 .HEROIC.VERSE.requested-song.leggendaria {
   background: linear-gradient(360deg, #db00ff 0%, rgba(179, 0, 0, 0) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("./img/versions/27-500px.jpg");
-  background-position: center;
+  background-position: center 80%;
 }
 
 .BISTROVER.requested-song.leggendaria {

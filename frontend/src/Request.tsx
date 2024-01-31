@@ -12,6 +12,7 @@ export default function Request(props: any) {
   const isOnCooldown = props.cooldown[1]
   const setIsOnCooldown = props.cooldown[2]
   const setCooldownRemaining = props.cooldown[3]
+  const cooldownRemaining = props.cooldown[4]
   const requestList = props.request
   let requestClass = "";
   const [difficultyClass, setDifficultyClass] = useState<string>("");
@@ -145,7 +146,7 @@ export default function Request(props: any) {
           className={focused ? "beginner-select diff-button highlight" : "beginner-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "beginner") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("beginner")}>Send</div> : <div className="on-cooldown">On Cooldown</div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("beginner")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
         </div>
           )}
       {difficulties[0]["normal"] &&
@@ -159,7 +160,7 @@ export default function Request(props: any) {
           className={focused ? "normal-select diff-button highlight" : "normal-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "normal") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("normal")}>Send</div> : <div className="on-cooldown">On Cooldown</div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("normal")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
         </div>
           )}
       {difficulties[0]["hyper"] &&
@@ -173,7 +174,7 @@ export default function Request(props: any) {
           className={focused ? "hyper-select diff-button highlight" : "hyper-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "hyper") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("hyper")}>Send</div> : <div className="on-cooldown">On Cooldown</div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("hyper")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
         </div>
           )}
       {difficulties[0]["another"] &&
@@ -187,7 +188,7 @@ export default function Request(props: any) {
           className={focused ? "another-select diff-button highlight" : "another-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "another") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("another")}>Send</div> : <div className="on-cooldown">On Cooldown</div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("another")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
         </div>
           )}
       {difficulties[0]["leggendaria"] &&
@@ -201,7 +202,7 @@ export default function Request(props: any) {
           className={focused ? "leggendaria-select diff-button highlight" : "leggendaria-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "leggendaria") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("leggendaria")}>Send</div> : <div className="on-cooldown">On Cooldown</div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("leggendaria")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
         </div>
           )}
           </div>

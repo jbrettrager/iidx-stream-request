@@ -51,3 +51,8 @@
   .room-area {
     width: 100%;
   }
+
+  .csv-error {
+    color: red;
+    font-size: 2rem;
+  }

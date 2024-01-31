@@ -9,3 +9,7 @@
 .column {
     flex-direction: column;
 }
+
+.failed-join {
+    color: red;
+}

@@ -100,3 +100,7 @@ export type SentRequestDb = {
 export type SentRequest = {
     [user: string]: Array<Song>
 }
+
+export type HostKeysDb = {
+    [room: string]: string
+}

@@ -54,6 +54,7 @@
     background: linear-gradient(0deg, rgba(218, 254, 0, 0.4) 0%, rgba(218, 254, 0, 0) 100%);
 }
 
+
 .level {
   border: 2px solid #A3A3A3;
 }
@@ -61,6 +62,26 @@
 .level.active {
   background: #FF7C02;
   border: 2px solid #A3A3A3;
+}
+
+.diamond.level.active:hover {
+  background: linear-gradient(180deg, rgba(218, 254, 0, 0.8) 0%, rgba(218, 254, 0, 0) 100%); 
+}
+
+.diamond.beginner-button.active:hover {
+  background: linear-gradient(180deg, rgba(218, 254, 0, 0.8) 0%, rgba(218, 254, 0, 0) 100%); 
+}
+.diamond.normal-button.active:hover {
+  background: linear-gradient(180deg, rgba(218, 254, 0, 0.8) 0%, rgba(218, 254, 0, 0) 100%); 
+}
+.diamond.hyper-button.active:hover {
+  background: linear-gradient(180deg, rgba(218, 254, 0, 0.8) 0%, rgba(218, 254, 0, 0) 100%); 
+}
+.diamond.another-button.active:hover {
+  background: linear-gradient(180deg, rgba(218, 254, 0, 0.8) 0%, rgba(218, 254, 0, 0) 100%); 
+}
+.diamond.leggendaria-button.active:hover {
+  background: linear-gradient(180deg, rgba(218, 254, 0, 0.8) 0%, rgba(218, 254, 0, 0) 100%); 
 }
 
 .diamond.beginner-button {
@@ -187,7 +208,7 @@
 }
 
 .sent-requests {
-  width: 31.25rem;
+  width: 80%;
 }
 
 
@@ -322,4 +343,47 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.requested-song-preview {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid gray;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.requested-song-preview.beginner {
+  background: linear-gradient(0deg, rgba(5, 255, 0, 0.6) 0%, rgba(217, 217, 217, 0) 100%);
+}
+.requested-song-preview.normal {
+  background: linear-gradient(0deg, rgba(20, 0, 255, 0.6) 0%, rgba(217, 217, 217, 0) 100%);
+}
+.requested-song-preview.hyper {
+  background: linear-gradient(0deg, rgba(250, 255, 0, 0.6) 0%, rgba(217, 217, 217, 0) 100%);
+}
+.requested-song-preview.another {
+  background: linear-gradient(0deg, rgba(255, 0, 0, 0.6) 0%, rgba(217, 217, 217, 0) 100%);
+}
+.requested-song-preview.leggendaria {
+  background: linear-gradient(0deg, rgba(255, 0, 230, 0.6) 0%, rgba(255, 0, 230, 0) 100%);
+}
+
+.requested-song-preview:hover {
+  background: linear-gradient(0deg, rgba(0, 255, 213, 0.822) 0%, rgba(255, 0, 230, 0) 100%);
+}
+
+.style-name {
+  margin-left: 1rem;
+  font-weight: 700;
+  background: linear-gradient(180deg, #ffffff 0%, rgb(107, 90, 255) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }

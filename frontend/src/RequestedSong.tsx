@@ -7,6 +7,7 @@ export default function RequestedSong(props: any) {
   let difficultyNumber = 0;
   let isLeggendaria = false;
   let isEpolis = false;
+  let isStreamview = props.isStreamview
 
   if(props.song.version === "1st&substream") {
     songAreaClass += "first"
@@ -42,28 +43,36 @@ export default function RequestedSong(props: any) {
     songAreaClass += props.song.version
   }
 
+  if (isStreamview === true) {
+    songAreaClass += " requested-song"
+  }
+
+  else {
+    songAreaClass += " requested-song-preview"
+  }
+
   if (props.song.requestDiff === "beginner") {
-    songAreaClass += " requested-song beginner";
+    songAreaClass += " beginner";
     difficulty = "BEGINNER";
     difficultyNumber = props.song.beginnerDiff;
   }
   if (props.song.requestDiff === "normal") {
-    songAreaClass += " requested-song normal";
+    songAreaClass += " normal";
     difficulty = "NORMAL";
     difficultyNumber = props.song.normalDiff;
   }
   if (props.song.requestDiff === "hyper") {
-    songAreaClass += " requested-song hyper";
+    songAreaClass += " hyper";
     difficulty = "HYPER";
     difficultyNumber = props.song.hyperDiff;
   }
   if (props.song.requestDiff === "another") {
-    songAreaClass += " requested-song another";
+    songAreaClass += " another";
     difficulty = "ANOTHER";
     difficultyNumber = props.song.anotherDiff;
   }
   if (props.song.requestDiff === "leggendaria") {
-    songAreaClass += " requested-song leggendaria";
+    songAreaClass += " leggendaria";
     difficulty = "LEGGENDARIA";
     difficultyNumber = props.song.leggendariaDiff;
     isLeggendaria = true;
@@ -81,6 +90,7 @@ export default function RequestedSong(props: any) {
             ? "song-name-epolis"
             : "song-name"
         }>{props.song.title}</div>
+        {!isStreamview && <div className="style-name">{props.song.version}</div>}
     </div>
   );
 }
