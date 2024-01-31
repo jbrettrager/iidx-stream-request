@@ -456,16 +456,19 @@ export default function HostView(props: any) {
           <div>Current Cooldown Timer:</div> 
           <div className="cooldown-number">{currentCooldown}</div> 
           <div>seconds</div>
+          <div className="set-cooldown">Set Cooldown:
           <input
             className="number-input"
             type="number"
             value={cooldown}
             onChange={handleCooldownChange}
           ></input>
-          {cooldown ? (
-            <div className="diamond-cooldown" onClick={sendCooldown}>Set Cooldown</div>
-          ) : (
-            <div className="cooldown-error">Please Enter a Valid Number</div>
+          <div>seconds</div>
+          </div>
+          {cooldown ? 
+            ((cooldown > 10800 ? <div className="diamond-cooldown cooldown-error">Number above max</div> : <div className="diamond-cooldown" onClick={sendCooldown}>Set Cooldown</div>
+          )) : (
+            <div className="diamond-cooldown cooldown-error">Please Enter a Valid Number</div>
           )}
         </div>
       </div>

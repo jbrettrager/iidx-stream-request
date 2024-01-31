@@ -198,3 +198,7 @@
   .level-number {
     font-size: 1.2rem;
   }
+
+  .on-cooldown{
+    color: rgb(0, 254, 254);
+  }
