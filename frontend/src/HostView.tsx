@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, useEffect } from "react";
 import { useState } from "react";
-import { LevelFilters, Difficulties, Song } from "../../backend/types.ts";
+import { LevelFilters, Difficulties, Song, TextDb } from "../../backend/types.ts";
 import { socket } from "./socket.js";
 import RequestedSong from "./RequestedSong.tsx";
 import { useParams } from "react-router-dom";
@@ -39,6 +39,67 @@ export default function HostView(props: any) {
   const [joinSuccessful, setJoinSuccessful] = useState<boolean>(false)
   const [sentMessageTimer, setSentMessageTimer] = useState<number>(0);
   const [currentCooldown, setCurrentCooldown] = useState<number>(cooldown);
+  const [language, setLanguage] = useState<string>("en");
+  const textDatabase: TextDb = {
+    headerHostTitle: {
+      en: "Hosting",
+      jp: "主催中"
+    },
+    headerMessage: {
+      en: "Please send the URL below to allow others to send requests to your room:",
+      jp: "他の人がこのルームにリクエストを送信できるように、下にあるURLを送信してください："
+    },
+    StreamviewMessage: {
+      en: "Please use this URL in OBS",
+      jp: "このURLをOBSで使用してください："
+    },
+    filtersTitle: {
+      en: "Control Panel",
+      jp: "コントロールパネル"
+    },
+    sendButton: {
+      en: "Send Updated Filters",
+      jp: "アップデートされたフィルターを送信する"
+    },
+    cooldownAreaTitle: {
+      en: "Current Cooldown Timer:",
+      jp: "現在のクールダウンタイマー"
+    },
+    setCooldownArea: {
+      en: "Change Cooldown",
+      jp: "クールダウンを変更する"
+    },
+    secondsText: {
+      en: "seconds",
+      jp: "秒"
+    },
+    cooldownButton: {
+      en: "Set Cooldown",
+      jp: "クールダウンを設定する"
+    },
+    isColumnRow: {
+      en: "Request Display: Row", 
+      jp: "リクエスト表示：行"
+    },
+    isColumnColumn:{
+      en: "Request Display: Column",
+      jp: "リクエスト表示：カラム"
+    },
+    filtersSent: {
+      en: "Filters Sent",
+      jp: "フィルターを送信した"
+    },
+    numberAboveMax: {
+      en: "Number above max",
+      jp: "最大値より上の数字"
+    },
+    invalidNumber: {
+      en: "Please Enter a Valid Number",
+      jp: "有効な数字を入力してください"
+    }
+
+
+  }
   const roomName = useParams().roomName?.split("-")[0];
   const hostKey = useParams().roomName?.split("-")[1];
   let guestUrl = "http://localhost:3000/guest/";
@@ -248,33 +309,37 @@ export default function HostView(props: any) {
     setCurrentCooldown(cooldown);
   }
 
+  function handleLanguageChange(e: React.ChangeEvent<HTMLDivElement>) {
+    setLanguage(e.target.textContent.toLowerCase())
+  }
+
   return (
     !joinSuccessful ? <div className="none">Host link is incorrect or room does not exist.</div> : 
     <div className="host-view none">
       <div className="header-host">
-        <div className="header-host-title">Hosting:</div>
+        <div className="header-host-title">{textDatabase['headerHostTitle'][language]}</div>
         <div className="room-name">{roomName}</div>
       </div>
       <div className="url-area">
         <div className="header-message">
-          Please send the URL below to allow others to join your room:
+          {textDatabase['headerMessage'][language]}
         </div>
         <input className="guest-url" value={guestUrl}></input>
-        <div className="header-message">Use this URL in OBS</div>
+        <div className="header-message">{textDatabase["StreamviewMessage"][language]}</div>
         <input className="guest-url" value={streamViewUrl}></input>
         {requestList[0] &&
           (isColumn ? (
             <div onClick={handleIsColumn} className="diamond-is-column">
-              Requests Display: Column
+              {textDatabase['isColumnColumn'][language]}
             </div>
           ) : (
             <div onClick={handleIsColumn} className="diamond-is-column">
-              Requests Display: Row
+              {textDatabase['isColumnRow'][language]}
             </div>
           ))}
       </div>
       <div className="filters host">
-        <div className="filters-title">Control Panel</div>
+        <div className="filters-title">{textDatabase['filtersTitle'][language]}</div>
         <div className="button-container">
           <div
             className={
@@ -461,30 +526,30 @@ export default function HostView(props: any) {
               sendUpdatedFilters(levelFilters, difficulties, roomName)
             }
           >
-            <div>Send Updated Filters</div>
+            <div>{textDatabase["sendButton"][language]}</div>
           </div>
         ) : (
           <div className="diamond-sent">
-            <div>Filters Sent!</div>
+            <div>{textDatabase["filtersSent"][language]}</div>
           </div>
         )}
         <div className="cooldown-area">
-          <div>Current Cooldown Timer:</div> 
+          <div>{textDatabase["cooldownAreaTitle"][language]}</div> 
           <div className="cooldown-number">{currentCooldown}</div> 
-          <div>seconds</div>
-          <div className="set-cooldown">Set Cooldown:
+          <div>{textDatabase["secondsText"][language]}</div>
+          <div className="set-cooldown">{textDatabase['setCooldownArea'][language]}
           <input
             className="number-input"
             type="number"
             value={cooldown}
             onChange={handleCooldownChange}
           ></input>
-          <div>seconds</div>
+          <div>{textDatabase["secondsText"][language]}</div>
           </div>
           {cooldown ? 
-            ((cooldown > 10800 ? <div className="diamond-cooldown cooldown-error">Number above max</div> : <div className="diamond-cooldown" onClick={sendCooldown}>Set Cooldown</div>
+            ((cooldown > 10800 ? <div className="diamond-cooldown cooldown-error">{textDatabase["numberAboveMax"][language]}</div> : <div className="diamond-cooldown" onClick={sendCooldown}>{textDatabase['cooldownButton'][language]}</div>
           )) : (
-            <div className="diamond-cooldown cooldown-error">Please Enter a Valid Number</div>
+            <div className="diamond-cooldown cooldown-error">{textDatabase['invalidNumber'][language]}</div>
           )}
         </div>
       </div>
@@ -500,6 +565,13 @@ export default function HostView(props: any) {
               />
             );
           })}
+      </div>
+      <div className="language-footer">
+        <span className="material-symbols-outlined">language</span>
+        <div className="languages">
+          <div className="selectable-language" onClick={handleLanguageChange}>EN</div>
+          <div className="selectable-language" onClick={handleLanguageChange}>JP</div>
+        </div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { socket } from "./socket.js";
 import { RouterProvider, useNavigate } from "react-router-dom";
-import { LevelFilters, Difficulties } from "./../../backend/types.ts";
+import { LevelFilters, Difficulties, TextDb } from "./../../backend/types.ts";
 import "./LandingPage.css";
 
 export default function LandingPage() {
@@ -11,6 +11,33 @@ export default function LandingPage() {
   const [failedCsvCheck, setFailedCsvCheck] = useState<boolean>(false);
   const [failedNameCheck, setFailedNameCheck] = useState<boolean>(false);
   const [roomList, setRoomList] = useState<Array<string>>([]);
+  const [language, setLanguage] = useState<string>("en");
+  const textDatabase: TextDb = {
+    hostPanelTitle: {
+      en: "Create a new Request Room",
+      jp: "新しいリクエストルームを作成する",
+    },
+    csvAreaTitle: {
+      en: "Please Copy your CSV below:",
+      jp: "CSVデータを下にコピーしてください：",
+    },
+    roomAreaTitle: {
+      en: "Input a room name here:",
+      jp: "ルーム名前を入力してください：",
+    },
+    landingButton: {
+      en: "Create Request Room",
+      jp: "ルームを作成する",
+    },
+    csvError: {
+      en: "Entered CSV is invalid. Please enter a valid CSV file.",
+      jp: "入力されたCSVデータが無効です。有効なCSVデータを入力してください。",
+    },
+    nameError: {
+      en: "Room already exists with that name.",
+      jp: "入力された名前がもう使用されている。",
+    },
+  };
   const navigate = useNavigate();
   const defaultLevelFilters: Array<LevelFilters> = [
     {
@@ -53,8 +80,13 @@ export default function LandingPage() {
   }, [roomList]);
 
   function checkCsv(csvData: string) {
-    let result = false
-    if (csvData.split("")[0] !== "バ"  || csvData.split("")[5] !== "," || csvData.split("")[549] !== "時") return result
+    let result = false;
+    if (
+      csvData.split("")[0] !== "バ" ||
+      csvData.split("")[5] !== "," ||
+      csvData.split("")[549] !== "時"
+    )
+      return result;
     else if (
       csvData.split(/\n/)[5].split(",")[1] === "GAMBOL" &&
       csvData.split(/\n/)[1].split(",")[1] === "22DUNK" &&
@@ -126,21 +158,27 @@ export default function LandingPage() {
   }
 
   function handleRoomInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    let newRoomName = e.target.value
-    let difference = newRoomName.split('')[newRoomName.length-1]
-    console.log(difference)
-    if (difference === "-")
-    return
-  else
-    setRoomName(newRoomName);
+    let newRoomName = e.target.value;
+    let difference = newRoomName.split("")[newRoomName.length - 1];
+    console.log(difference);
+    if (difference === "-") return;
+    else setRoomName(newRoomName);
+  }
+
+  function handleLanguageChange(e: React.ChangeEvent<HTMLDivElement>) {
+    setLanguage(e.target.textContent.toLowerCase())
   }
 
   return (
     <div className="landing-page none">
       <div className="host-panel">
-        <div className="host-panel-title">Host a new Request Room</div>
+        <div className="host-panel-title">
+          {textDatabase["hostPanelTitle"][language]}
+        </div>
         <div className="csv-area">
-          <div className="csv-area-title">Please Copy your CSV below:</div>
+          <div className="csv-area-title">
+            {textDatabase["csvAreaTitle"][language]}
+          </div>
           <textarea
             id="csv-input"
             className="csv-input"
@@ -149,7 +187,7 @@ export default function LandingPage() {
           ></textarea>
         </div>
         <div className="room-area">
-          <div>Input a room name here:</div>
+          <div>{textDatabase["roomAreaTitle"][language]}</div>
           <input
             type="text"
             id="room-name"
@@ -160,18 +198,23 @@ export default function LandingPage() {
 
           {roomName && (
             <button onClick={createRoom} className="landing-button">
-              Create Request Room
+              {textDatabase["landingButton"][language]}
             </button>
           )}
         </div>
         {failedCsvCheck && (
-          <div className="csv-error">
-            Entered CSV is invalid. Please enter a valid CSV file.
-          </div>
+          <div className="csv-error">{textDatabase["csvError"][language]}</div>
         )}
         {failedNameCheck && (
-          <div className="csv-error">Room already exists with that name.</div>
+          <div className="csv-error">{textDatabase["nameError"][language]}</div>
         )}
+      </div>
+      <div className="language-footer">
+        <span className="material-symbols-outlined">language</span>
+        <div className="languages">
+          <div className="selectable-language" onClick={handleLanguageChange}>EN</div>
+          <div className="selectable-language" onClick={handleLanguageChange}>JP</div>
+        </div>
       </div>
     </div>
   );

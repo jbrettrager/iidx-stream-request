@@ -56,3 +56,30 @@
     color: red;
     font-size: 2rem;
   }
+
+  .language-footer {
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .languages {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    width: 3rem;
+    align-items: center;
+  }
+
+  .selectable-language {
+    width: 100%;
+    text-align:center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .selectable-language:hover {
+    background: rgb(128, 128, 128);
+  }

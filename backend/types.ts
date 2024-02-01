@@ -104,3 +104,11 @@ export type SentRequest = {
 export type HostKeysDb = {
     [room: string]: string
 }
+
+export type TextDb = {
+    [textArea: string]: LanguageOptions
+}
+
+export type LanguageOptions = {
+    [language: string]: string
+}

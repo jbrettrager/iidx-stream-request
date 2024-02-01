@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { LevelFilters, Difficulties, Song } from "../../backend/types.ts";
+import { LevelFilters, Difficulties, Song, TextDb } from "../../backend/types.ts";
 import { socket } from "./socket.js";
 import "./Request.css";
 
@@ -14,12 +14,31 @@ export default function Request(props: any) {
   const setCooldownRemaining = props.cooldown[3]
   const cooldownRemaining = props.cooldown[4]
   const requestList = props.request
+  const language = props.language
   let requestClass = "";
   const [difficultyClass, setDifficultyClass] = useState<string>("");
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
   const [currentRequestedSongs, setCurrentRequestedSongs] = useState<Array<Song>>([])
   const [sentMessage, setSentMessage] = useState<boolean>(false)
   const [focused, setFocused] = useState<boolean>(false)
+  const textDatabase: TextDb = {
+    sendRequest: {
+      en: "Send Request?",
+      jp: 'リクエストを送信する？'
+    },
+    sendButtonText: {
+      en: "Send", 
+      jp: "送信する"
+    }, 
+    onCooldownText: {
+      en: "On Cooldown", 
+      jp: "クールダウン中"
+    },
+    alreadyRequested: {
+      en: "Already Requested", 
+      jp: "リクエスト済み"
+    }
+  }
   let isEpolis = false;
 
   function checkExisting(requestList: Array<Song>, song: Song, requestDiff: string): boolean {
@@ -139,70 +158,70 @@ export default function Request(props: any) {
           props.song.beginnerDiff !== "0" &&
           checkSelectable(props.song.beginnerDiff) && (
             <div className={!focused ? "diff-and-level beginner unfocused" : "diff-and-level beginner-focused"}>
-            {focused && <div>Send Request?
+            {focused && <div>{textDatabase["sendRequest"][language]}
               </div>}
           <div className="level-number">{props.song.beginnerDiff}</div>
         <div
           className={focused ? "beginner-select diff-button highlight" : "beginner-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "beginner") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("beginner")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("beginner")}>{textDatabase["sendButtonText"][language]}</div> : <div className="on-cooldown"><div>{textDatabase['onCooldownText'][language]}</div><div>{language === "jp" && '後で'} {cooldownRemaining} {language === "en" && "seconds left"}</div></div>) : <div>{textDatabase['alreadyRequested'][language]}</div>)}
         </div>
           )}
       {difficulties[0]["normal"] &&
           props.song.normalDiff !== "0" &&
           checkSelectable(props.song.normalDiff) && (
             <div className={!focused ? "diff-and-level normal unfocused" : "diff-and-level normal-focused"}>
-            {focused && <div>Send Request?
+            {focused && <div>{textDatabase["sendRequest"][language]}
               </div>}
           <div className="level-number">{props.song.normalDiff}</div>
         <div
           className={focused ? "normal-select diff-button highlight" : "normal-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "normal") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("normal")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("normal")}>{textDatabase["sendButtonText"][language]}</div> : <div className="on-cooldown"><div>{textDatabase['onCooldownText'][language]}</div><div>{language === "jp" && '後で'} {cooldownRemaining} {language === "jp" && "秒"}{language === "en" && "seconds left"}</div></div>) : <div>{textDatabase['alreadyRequested'][language]}</div>)}
         </div>
           )}
       {difficulties[0]["hyper"] &&
           props.song.hyperDiff !== "0" &&
           checkSelectable(props.song.hyperDiff) && (
             <div className={!focused ? "diff-and-level hyper unfocused" : "diff-and-level hyper-focused"}>
-            {focused && <div>Send Request?
+            {focused && <div>{textDatabase["sendRequest"][language]}
               </div>}
           <div className="level-number">{props.song.hyperDiff}</div>
         <div
           className={focused ? "hyper-select diff-button highlight" : "hyper-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "hyper") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("hyper")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("hyper")}>{textDatabase["sendButtonText"][language]}</div> : <div className="on-cooldown"><div>{textDatabase['onCooldownText'][language]}</div><div>{language === "jp" && '後で'} {cooldownRemaining} {language === "jp" && "秒"}{language === "en" && "seconds left"}</div></div>) : <div>{textDatabase['alreadyRequested'][language]}</div>)}
         </div>
           )}
       {difficulties[0]["another"] &&
           props.song.anotherDiff !== "0" &&
           checkSelectable(props.song.anotherDiff) && (
             <div className={!focused ? "diff-and-level another unfocused" : "diff-and-level another-focused"}>
-            {focused && <div>Send Request?
+            {focused && <div>{textDatabase["sendRequest"][language]}
               </div>}
           <div className="level-number">{props.song.anotherDiff}</div>
         <div
           className={focused ? "another-select diff-button highlight" : "another-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "another") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("another")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("another")}>{textDatabase["sendButtonText"][language]}</div> : <div className="on-cooldown"><div>{textDatabase['onCooldownText'][language]}</div><div>{language === "jp" && '後で'} {cooldownRemaining} {language === "jp" && "秒"}{language === "en" && "seconds left"}</div></div>) : <div>{textDatabase['alreadyRequested'][language]}</div>)}
         </div>
           )}
       {difficulties[0]["leggendaria"] &&
           props.song.leggendariaDiff !== "0" &&
           checkSelectable(props.song.leggendariaDiff) && (
             <div className={!focused ? "diff-and-level leggendaria unfocused" : "diff-and-level leggendaria-focused"}>
-            {focused && <div>Send Request?
+            {focused && <div>{textDatabase["sendRequest"][language]}
               </div>}
           <div className="level-number">{props.song.leggendariaDiff}</div>
         <div
           className={focused ? "leggendaria-select diff-button highlight" : "leggendaria-select diff-button unhighlight" }
         ></div>
         {focused && (!checkExisting(requestList, props.song, "leggendaria") ? 
-            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("leggendaria")}>Send</div> : <div className="on-cooldown"><div>On Cooldown</div><div>{cooldownRemaining} seconds left</div></div>) : <div>Already Requested</div>)}
+            (!isOnCooldown ? <div className="send-request-button" onClick={() => sendRequest("leggendaria")}>{textDatabase["sendButtonText"][language]}</div> : <div className="on-cooldown"><div>{textDatabase['onCooldownText'][language]}</div><div>{language === "jp" && '後で'}{cooldownRemaining} {language === "jp" && "秒"}{language === "en" && "seconds left"}</div></div>) : <div>{textDatabase['alreadyRequested'][language]}</div>)}
         </div>
           )}
           </div>

@@ -6,6 +6,7 @@ import {
   Difficulties,
   Song,
   StyleFilters,
+  TextDb
 } from "./../../backend/types.ts";
 import Request from "./Request.tsx";
 import { useParams } from "react-router-dom";
@@ -53,6 +54,7 @@ export default function GuestView(props: any) {
   const [cooldownRemaining, setCooldownRemaining] = useState<number>(0);
   const [isOnCooldown, setIsOnCooldown] = useState<boolean>(false);
   const [pageNumber, setPageNumber] = useState<number>(0);
+  const [language, setLanguage] = useState<string>("en");
   const [requestList, setRequestList] = useState<Array<Song>>([]);
   const [levelFilters, setLevelFilters] = useState<Array<LevelFilters>>([
     {
@@ -116,6 +118,45 @@ export default function GuestView(props: any) {
   ]);
   const [searchText, setSearchText] = useState<string>("");
   const roomName = useParams().roomName;
+  const textDatabase: TextDb = {
+    guestTitle: {
+      en: "Taking Requests for:",
+      jp: "リクエスト受付中"
+    },
+    filtersTitle: {
+      en: "Currently Active Filters:",
+      jp: "設定されたフィルター："
+    },
+    currentCooldown: {
+      en: "Current Cooldown Timer: ",
+      jp: "現在のクールダウンタイマー： "
+    },
+    secondsText: {
+      en: "seconds",
+      jp: "秒"
+    },
+    checkAll: {
+      en: "Check All Styles", 
+      jp: "全てチェックする"
+    },
+    uncheckAll: {
+      en: "Uncheck All Styles",
+      jp: "全てチェックを外す"
+    }, 
+    searchTitle: {
+      en: "Search by Song Name:", 
+      jp: "曲名で検索："
+    },
+    numberAvailable: {
+      en: "Number of Songs Available to Request", 
+      jp: "リクエスト可能な曲数"
+    },
+    pageText: {
+      en: "Page",
+      jp: "ページ"
+    }
+
+  }
 
   useEffect(() => {
     const cooldownTimer = setInterval(() => {
@@ -362,6 +403,7 @@ export default function GuestView(props: any) {
   }
 
   function handleCheckAll(e: React.ChangeEvent<HTMLDivElement>) {
+    setPageNumber(0)
     let newStyleFilters = [...styleFilters];
     let buttonType = e.target.className.split(" ")[0];
     console.log(buttonType);
@@ -610,15 +652,18 @@ export default function GuestView(props: any) {
     }
     return filteredSonglist;
   }
+  function handleLanguageChange(e: React.ChangeEvent<HTMLDivElement>) {
+    setLanguage(e.target.textContent.toLowerCase())
+  }
 
   return (
     !joinSuccessful ? <div className="none">Room {roomName} does not exist.</div> :<div className="guest-view none">
       <div className="header-guest">
-        <div className="guest-title">Submitting Requests for:</div>
+        <div className="guest-title">{textDatabase['guestTitle'][language]}</div>
         <div className="room-name">{roomName}</div>
       </div>
       <div className="filters guest">
-        <div className="filters-title">Currently Active Filters:</div>
+        <div className="filters-title">{textDatabase['filtersTitle'][language]}</div>
         <div className="button-container">
           <div
             className={
@@ -781,7 +826,7 @@ export default function GuestView(props: any) {
           </div>
         </div>
       </div>
-      <div>Current Cooldown Timer: {cooldown} seconds</div>
+      <div>{textDatabase['currentCooldown'][language]} {cooldown} {textDatabase['secondsText'][language]}</div>
       {cooldownRemaining !== 0 && (
         <div>{cooldownRemaining} seconds remaining</div>
       )}
@@ -1111,7 +1156,7 @@ export default function GuestView(props: any) {
                 : "check diamond-check"
             }
           >
-            <div onClick={handleCheckAll} className="check text">Check All Styles</div>
+            <div onClick={handleCheckAll} className="check text">{textDatabase['checkAll'][language]}</div>
           </div>
           <div
             className={
@@ -1121,12 +1166,12 @@ export default function GuestView(props: any) {
             }
             onClick={handleCheckAll}
           >
-            <div onClick={handleCheckAll} className="uncheck text">Uncheck All Styles</div>
+            <div onClick={handleCheckAll} className="uncheck text">{textDatabase['uncheckAll'][language]}</div>
           </div>
         </div>
       </div>
       <div className="search-area">
-        <div>Search by Song Name:</div>
+        <div>{textDatabase['searchTitle'][language]}</div>
         <input
           className="search-bar"
           type="text"
@@ -1137,7 +1182,7 @@ export default function GuestView(props: any) {
       </div>
       <div className="bottom-area">
         <div className="songs-area-title">
-          Number of Songs Available to Request:
+        {textDatabase['numberAvailable'][language]}
           <div className="no-of-songs">{songlist.length}</div>
         </div>
         <div className="songs-area">
@@ -1161,6 +1206,7 @@ export default function GuestView(props: any) {
                       cooldownRemaining
                     ]}
                     request={requestList}
+                    language={language}
                   />
                 );
               })}
@@ -1172,13 +1218,13 @@ export default function GuestView(props: any) {
                 arrow_forward_ios
               </span>
             </div>
-            <div className="no-of-pages"> Page {pageNumber + 1}</div>
+            <div className="no-of-pages"> {textDatabase['pageText'][language]} {pageNumber + 1}</div>
             <div className="minus-page" onClick={handleMinus}>
               <span className="material-symbols-outlined">arrow_back_ios</span>
             </div>
           </div>
           <div>
-            Now Displaying {pageNumber * displayNumber} -{" "}
+            {pageNumber * displayNumber} -{" "}
             {pageNumber * displayNumber + displayNumber >
             applyStyleFilters(applySearch(searchText, songlist), styleFilters)
               .length
@@ -1193,6 +1239,13 @@ export default function GuestView(props: any) {
                 .length
             }
           </div>
+        </div>
+      </div>
+      <div className="language-footer">
+        <span className="material-symbols-outlined">language</span>
+        <div className="languages">
+          <div className="selectable-language" onClick={handleLanguageChange}>EN</div>
+          <div className="selectable-language" onClick={handleLanguageChange}>JP</div>
         </div>
       </div>
     </div>
