@@ -3,9 +3,25 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
-import { Song, SongDatabase, FilterDb, CooldownDb, IsColumnDb, SentRequestDb, SentRequest, HostKeysDb } from "./types";
+const mongoose = require("mongoose");
+import {uriSecret} from "./config.ts"
+import { Room } from "./Room";
+import { datacatalog } from "googleapis/build/src/apis/datacatalog";
+import {
+  Song,
+  SongDatabase,
+  FilterDb,
+  CooldownDb,
+  IsColumnDb,
+  SentRequestDb,
+  SentRequest,
+  HostKeysDb,
+} from "./types";
 
 app.use(cors());
+ const uri = uriSecret
+  
+mongoose.connect(uri).then(console.log("connected to MongoDB"));
 
 const server = http.createServer(app);
 const roomList: string[] = [];
@@ -18,13 +34,6 @@ const io = new Server(server, {
 });
 
 const rooms = io.of("/").adapter.rooms;
-const songDatabase: SongDatabase = {};
-const filterDb: FilterDb = {};
-const requestDb: SongDatabase = {};
-const cooldownDb: CooldownDb = {};
-const isColumnDb: IsColumnDb = {}
-const sentRequestDb: SentRequestDb = {}
-const hostKeysDb: any = {}
 
 function createSongDb(csv: string): Song[] {
   console.log("DB BEING CREATED!!");
@@ -55,7 +64,7 @@ function createSongDb(csv: string): Song[] {
   return songDb;
 }
 
-function checkRoomName(roomName: string): boolean {
+function checkRoomName(roomName: string, roomList: Array<string>): boolean {
   let result = false;
   if (roomList[0] === undefined) return result;
   else {
@@ -66,128 +75,212 @@ function checkRoomName(roomName: string): boolean {
   }
 }
 
-
 io.on("connection", (socket: any) => {
-  io.to(socket.id).emit("get_room_list", { roomList });
 
-  socket.on("landing_lobby", (data: any) => {
-    socket.join("lobby")
-    io.to("lobby").emit("lobby_join_rooms", {roomList})
-  })
-
-  socket.on("join_room_host", (data: any) => {
-    let roomName: string = data.roomName
-    let hostKey: string = data.hostKey
-      if (hostKeysDb[roomName] !== "") {
-        console.log("room exists")
-        if (hostKeysDb[roomName] === hostKey) {
-          console.log("key match", hostKeysDb[roomName], hostKey)
-          io.to(socket.id).emit("room_join_host", {join: true})
-        }
-        else {
-          console.log("KEY MISMATCH!")
-        }
-      }
-      else if (hostKeysDb[roomName] === "") {
-        console.log("room doesnt exist, creating", roomName)
-        hostKeysDb[roomName] = hostKey
-        io.to(socket.id).emit("room_join_host", {join: true})
-      }
+  socket.on("landing_lobby", async (data: any) => {
+    socket.join("lobby");
+    try {
+      const rooms = await Room.find()
+      const newRoomList = rooms.map((room: any) => {return room["roomName"]})
+      io.to("lobby").emit("lobby_join_rooms", { roomList: newRoomList });
+    }
+    catch (e: any) {
+      console.log(e.message);
+    }
+    
   });
 
-  socket.on("join_room_guest", (data:any) => {
-    if (checkRoomName(data.roomName)) {
-      io.to(socket.id).emit("room_guest_join", {join:true})
+  socket.on("join_room_host", async (data: any) => {
+    let roomName: string = data.roomName;
+    let hostKey: string = data.hostKey;
+    try {
+      const savedHostKeyAwait = await Room.findOne({
+        roomName: roomName,
+      }).select("hostKey");
+      const savedHostKey = savedHostKeyAwait["hostKey"];
+      if (savedHostKey !== "") {
+        console.log("room exists");
+        if (savedHostKey === hostKey) {
+          console.log("key match", savedHostKey, hostKey);
+          io.to(socket.id).emit("room_join_host", { join: true });
+        } else {
+          console.log("KEY MISMATCH!", savedHostKey, hostKey);
+        }
+      } else if (savedHostKey === "") {
+        console.log("room doesnt exist, creating", roomName);
+        const query = { roomName: roomName };
+        const update = { hostKey: hostKey };
+        await Room.findOneAndUpdate(query, update);
+        io.to(socket.id).emit("room_join_host", { join: true });
+      }
+    } catch (e: any) {
+      console.log(e.message);
     }
-  })
+  });
 
-  socket.on("join_room_streamview", (data:any) => {
-    let roomName = data.roomName
-    let sentKey = data.hostKey
-    if (hostKeysDb[roomName] === sentKey) {
-      io.to(socket.id).emit("room_join_streamview", {join: true})
+
+  socket.on("join_room_guest", async (data: any) => {
+    try {
+      const rooms = await Room.find()
+      const newRoomList = rooms.map((room: any) => {return room["roomName"]})
+      if (checkRoomName(data.roomName, newRoomList)) {
+        io.to(socket.id).emit("room_guest_join", { join: true });
+      }
     }
-  })
+    catch (e: any) {
+      console.log(e.message);
+    }
 
-  socket.on("create_room", (data: any) => {
-    const newRoom: string = data.roomName;
-    roomList.push(newRoom);
-    io.to("lobby").emit("room_created", {roomList})
+  });
+
+  socket.on("join_room_streamview", async (data: any) => {
+    let roomName = data.roomName;
+    let sentKey = data.hostKey;
+    try {
+      const hostKeyAwait = await Room.findOne({roomName: roomName})
+      const savedHostKey = hostKeyAwait["hostKey"]
+      if (savedHostKey === sentKey) {
+        io.to(socket.id).emit("room_join_streamview", { join: true });
+      }
+    }
+    catch (e: any) {
+      console.log(e.message);
+    }
+   
+  });
+
+
+  socket.on("create_room", async (data: any) => {
+    const roomName: string = data.roomName;
+    roomList.push(roomName);
     const database: Array<Song> = createSongDb(data.csvData);
-    songDatabase[data.roomName] = database;
-    filterDb[data.roomName] = [
-      data.defaultLevelFilters,
-      data.defaultDifficulties,
-    ];
-    cooldownDb[data.roomName] = data.cooldown
-    isColumnDb[data.roomName] = data.isColumn
-    sentRequestDb[data.roomName] = {}
-    hostKeysDb[data.roomName] = ""
-    io.emit("update_room_list", { roomList });
-    io.to(data.roomName).emit("roomData", { csv: songDatabase[data.roomName] });
+    try {
+      await Room.create({
+        roomName: roomName,
+        songs: database,
+        cooldown: data.cooldown,
+        isColumn: data.isColumn,
+        requests: [],
+        hostKey: "",
+        filters: [data.defaultLevelFilters, data.defaultDifficulties],
+      });
+      console.log("room created in MongoDB");
+      const rooms = await Room.find()
+      const newRoomList = rooms.map((room: any) => {return room["roomName"]})
+      console.log(newRoomList)
+      io.to("lobby").emit("room_created", { roomList: newRoomList });
+    } catch (e: any) {
+      console.log(e.message);
+    }
   });
 
-  socket.on("join_room", (data: any) => {
-    socket.join(data.roomName);
-    if (requestDb[data.roomName]) {
+
+  socket.on("join_room", async (data: any) => {
+    const roomName = data.roomName;
+    const currentRoom = await Room.findOne({ roomName: roomName });
+    socket.join(roomName);
     socket.emit("initial_room_updates", {
-      songs: songDatabase[data.roomName],
-      filters: [filterDb[data.roomName][0], filterDb[data.roomName][1]],
-      cooldown: cooldownDb[data.roomName],
-      requestList: requestDb[data.roomName],
-      isColumn: isColumnDb[data.roomName]
-    });}
-    else {
-      socket.emit("initial_room_updates", {
-        songs: songDatabase[data.roomName],
-        filters: [filterDb[data.roomName][0], filterDb[data.roomName][1]],
-        cooldown: cooldownDb[data.roomName],
-        requestList: [],
-        isColumn: isColumnDb[data.roomName] 
-      });
-    }
+      songs: currentRoom["songs"],
+      filters: [currentRoom["filters"][0], currentRoom["filters"][1]],
+      cooldown: currentRoom["cooldown"],
+      requestList: currentRoom["requests"],
+      isColumn: currentRoom["isColumn"],
+    });
+
     console.log("JOINED", rooms);
   });
+
+
+  socket.on("stream_display_change", async (data: any) => {
+    try {
+      const query = {roomName: data.roomName}
+      const update = {isColumn: data.isColumn}
+      await Room.findOneAndUpdate(query, update)
+      io.to(data.roomName).emit("update_stream_view", {
+        isColumn: data.isColumn,
+      });
+    }
+    catch (e: any) {
+      console.log(e.message);
+    }
+
+  });
+
+
+  socket.on("host_update_filters", async (data: any) => {
+    try {
+      const query = {roomName: data.roomName}
+      const update = {filters: [data.levelFilters, data.difficulties]}
+      await Room.findOneAndUpdate(query, update)
+      io.to(data.roomName).emit("send_updated_filters", {
+        level: data.levelFilters,
+        difficulties: data.difficulties,
+      });
+    }
+    catch (e: any) {
+      console.log(e.message);
+    }
+   
+  });
+
   
 
-  socket.on("stream_display_change", (data: any) => {
-    isColumnDb[data.roomName] = data.isColumn
-    io.to(data.roomName).emit("update_stream_view", {isColumn: data.isColumn})
-  })
-  
-  socket.on("host_update_filters", (data: any) => {
-    filterDb[data.roomName] = [data.levelFilters, data.difficulties];
-    io.to(data.roomName).emit("send_updated_filters", {
-      level: data.levelFilters,
-      difficulties: data.difficulties,
-    });
+  socket.on("send_request", async (data: any) => {
+    try {
+      const currentRequestsAwait = await Room.findOne({roomName: data.roomName})
+      const currentRequests = currentRequestsAwait["requests"]
+      currentRequests.push(data.song)
+      const query = {roomName: data.roomName}
+      const update = {requests: currentRequests}
+      await Room.findOneAndUpdate(query, update)
+      io.to(data.roomName).emit("receive_request", { song: data.song });
+      io.to(data.roomName).emit("update_requests", {
+        requestList: currentRequests,
+      });
+    }
+    catch (e: any) {
+      console.log(e.message);
+    }
+
   });
 
-  socket.on("send_request", (data: any) => {
-    if (!requestDb[data.room]) {
-      requestDb[data.room] = [data.song];
-    } else requestDb[data.room].push(data.song);
-    io.to(data.room).emit("receive_request", { song: data.song });
-    io.to(data.room).emit("update_requests", {
-      requestList: requestDb[data.room],
-    });
+
+
+
+
+  socket.on("remove_from_requests", async (data: any) => {
+    try {
+      const currentRequestsAwait = await Room.findOne({roomName: data.roomName})
+      const currentRequests = currentRequestsAwait["requests"]
+      const query = {roomName: data.roomName}
+      const update = {requests: currentRequests}
+      await Room.findOneAndUpdate(query, update)
+      io.to(data.roomName).emit("update_requests", {
+        requestList: data.requestList,
+      });
+    }
+    catch (e: any) {
+      console.log(e.message);
+    }
   });
 
-  socket.on("request_to_backend", (data: any) => {
-    requestDb[data.roomName] = data.requestList;
+
+
+  socket.on("send_cooldown", async (data: any) => {
+    try {
+      const query = {roomName: data.roomName}
+      const update = {cooldown: data.cooldown}
+      await Room.findOneAndUpdate(query, update)
+      io.to(data.roomName).emit("update_cooldown", { cooldown: data.cooldown });
+    }
+    catch (e: any) {
+      console.log(e.message);
+    }
+
   });
 
-  socket.on("remove_from_requests", (data: any) => {
-    requestDb[data.roomName] = data.requestList;
-    io.to(data.roomName).emit("update_requests", {
-      requestList: data.requestList,
-    });
-  });
 
-  socket.on("send_cooldown", (data: any) => {
-    cooldownDb[data.roomName] = data.cooldown;
-    io.to(data.roomName).emit("update_cooldown", { cooldown: data.cooldown });
-  });
+
 });
 
 server.listen(3001, () => console.log("app is listening on port 3001"));
