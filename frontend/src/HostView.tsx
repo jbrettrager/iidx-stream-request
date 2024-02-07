@@ -35,6 +35,8 @@ export default function HostView(props: any) {
   const [requestList, setRequestList] = useState<Array<Song>>([]);
   const [isColumn, setIsColumn] = useState<boolean>(true);
   const [cooldown, setCooldown] = useState<number>(60);
+  const [loadingTime, setLoadingTime] = useState<number>(3)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [sentMessage, setSentMessage] = useState<boolean>(false);
   const [joinSuccessful, setJoinSuccessful] = useState<boolean>(false)
   const [sentMessageTimer, setSentMessageTimer] = useState<number>(0);
@@ -47,7 +49,7 @@ export default function HostView(props: any) {
     },
     headerMessage: {
       en: "Please send the URL below to allow others to send requests to your room:",
-      jp: "他の人がこのルームにリクエストを送信できるように、下にあるURLを送信してください："
+      jp: "他の人がこのルームにリクエストを送信できるように下にあるURLを送信してください："
     },
     StreamviewMessage: {
       en: "Please use this URL in OBS",
@@ -107,6 +109,25 @@ export default function HostView(props: any) {
   guestUrl += roomName;
   streamViewUrl += useParams().roomName;
 
+
+  useEffect(() => {
+    const loadingTimer = setInterval(() => {
+      if (loadingTime === 0) {
+        setIsLoading(false);
+      } else {
+        setLoadingTime(loadingTime - 1);
+      }
+    }, 1000);
+    return () => {
+      clearInterval(loadingTimer);
+    };
+  }, [loadingTime]);
+
+  useEffect(() => {
+    if(!isLoading)
+    socket.emit("join_room_host", { roomName, hostKey });
+  }, [isLoading])
+  
   useEffect(() => {
     socket.on("initial_room_updates", onInitialRoomUpdatesRequests);
     socket.on("receive_request", onReceiveRequest);
@@ -163,7 +184,6 @@ export default function HostView(props: any) {
 
   useEffect(() => {
     document.body.style.backgroundColor = "#090020";
-    socket.emit("join_room_host", { roomName, hostKey });
   }, []);
 
   useEffect(() => {
@@ -314,7 +334,7 @@ export default function HostView(props: any) {
   }
 
   return (
-    !joinSuccessful ? <div className="none">Host link is incorrect or room does not exist.</div> : 
+    isLoading ? <div>Loading...</div> : (!joinSuccessful ? <div className="none">Host link is incorrect or room does not exist.</div> : 
     <div className="host-view none">
       <div className="header-host">
         <div className="header-host-title">{textDatabase['headerHostTitle'][language]}</div>
@@ -573,6 +593,6 @@ export default function HostView(props: any) {
           <div className="selectable-language" onClick={handleLanguageChange}>JP</div>
         </div>
       </div>
-    </div>
+    </div>)
   );
 }

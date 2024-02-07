@@ -18,8 +18,6 @@ export default function Request(props: any) {
   let requestClass = "";
   const [difficultyClass, setDifficultyClass] = useState<string>("");
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
-  const [currentRequestedSongs, setCurrentRequestedSongs] = useState<Array<Song>>([])
-  const [sentMessage, setSentMessage] = useState<boolean>(false)
   const [focused, setFocused] = useState<boolean>(false)
   const textDatabase: TextDb = {
     sendRequest: {
@@ -85,7 +83,7 @@ export default function Request(props: any) {
     socket.emit("send_request", {
       song: props.song,
       difficulty: diff,
-      room: roomName,
+      roomName: roomName,
     });
     setIsOnCooldown(true)
     setCooldownRemaining(cooldown)

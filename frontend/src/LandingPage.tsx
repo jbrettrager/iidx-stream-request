@@ -11,6 +11,8 @@ export default function LandingPage() {
   const [failedCsvCheck, setFailedCsvCheck] = useState<boolean>(false);
   const [failedNameCheck, setFailedNameCheck] = useState<boolean>(false);
   const [roomList, setRoomList] = useState<Array<string>>([]);
+  const [loadingTime, setLoadingTime] = useState<number>(2);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [language, setLanguage] = useState<string>("en");
   const textDatabase: TextDb = {
     hostPanelTitle: {
@@ -66,9 +68,26 @@ export default function LandingPage() {
   ];
 
   useEffect(() => {
+    const loadingTimer = setInterval(() => {
+      if (loadingTime === 0) {
+        setIsLoading(false);
+      } else {
+        setLoadingTime(loadingTime - 1);
+        console.log("loading")
+      }
+    }, 1000);
+    return () => {
+      clearInterval(loadingTimer);
+    };
+  }, [loadingTime]);
+
+  useEffect(() => {
     document.body.style.backgroundColor = "#272727";
-    socket.emit("landing_lobby");
   }, []);
+
+  useEffect(() => {
+    if (!isLoading) socket.emit("landing_lobby");
+  }, [isLoading]);
 
   useEffect(() => {
     socket.on("lobby_join_rooms", onLobbyJoinRooms);
@@ -108,11 +127,19 @@ export default function LandingPage() {
   }
 
   function onLobbyJoinRooms(data: any) {
-    setRoomList(data.roomList);
+    if (data.roomList === undefined) {
+      console.log(data.roomList, "empty roomlist");
+      return
+    }
+    else {
+      setRoomList(data.roomList);
+      console.log(data.roomList, "ROOMLIST UPDATE ON ARRIVAL");
+    }
   }
 
   function onRoomCreated(data: any) {
     setRoomList(data.roomList);
+    console.log(data.roomList, "ROOMLIST UPDATE ON CREATION");
   }
 
   function createRoom() {
@@ -160,16 +187,17 @@ export default function LandingPage() {
   function handleRoomInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
     let newRoomName = e.target.value;
     let difference = newRoomName.split("")[newRoomName.length - 1];
-    console.log(difference);
     if (difference === "-") return;
     else setRoomName(newRoomName);
   }
 
   function handleLanguageChange(e: React.ChangeEvent<HTMLDivElement>) {
-    setLanguage(e.target.textContent.toLowerCase())
+    setLanguage(e.target.textContent.toLowerCase());
   }
 
-  return (
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
     <div className="landing-page none">
       <div className="host-panel">
         <div className="host-panel-title">
@@ -212,8 +240,12 @@ export default function LandingPage() {
       <div className="language-footer">
         <span className="material-symbols-outlined">language</span>
         <div className="languages">
-          <div className="selectable-language" onClick={handleLanguageChange}>EN</div>
-          <div className="selectable-language" onClick={handleLanguageChange}>JP</div>
+          <div className="selectable-language" onClick={handleLanguageChange}>
+            EN
+          </div>
+          <div className="selectable-language" onClick={handleLanguageChange}>
+            JP
+          </div>
         </div>
       </div>
     </div>
