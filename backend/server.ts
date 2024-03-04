@@ -282,4 +282,4 @@ io.on("connection", (socket: any) => {
 
 });
 
-server.listen(3001, () => console.log("app is listening on port 3001"));
+server.listen(10000, () => console.log("app is listening on port 10000"));
