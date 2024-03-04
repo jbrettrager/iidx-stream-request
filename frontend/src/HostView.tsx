@@ -104,8 +104,8 @@ export default function HostView(props: any) {
   }
   const roomName = useParams().roomName?.split("-")[0];
   const hostKey = useParams().roomName?.split("-")[1];
-  let guestUrl = "http://localhost:3000/guest/";
-  let streamViewUrl = "http://localhost:3000/streamview/";
+  let guestUrl = "https://iidx-stream-request.onrender.com//guest/";
+  let streamViewUrl = "https://iidx-stream-request.onrender.com//streamview/";
   guestUrl += roomName;
   streamViewUrl += useParams().roomName;
 

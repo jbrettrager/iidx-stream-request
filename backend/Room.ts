@@ -21,5 +21,3 @@ const roomSchema = new mongoose.Schema({
 }, {timestamps: true})
 
 export const Room = mongoose.model("Room", roomSchema)
-
-//methods we wanna make -> updates
