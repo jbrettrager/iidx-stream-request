@@ -105,7 +105,8 @@ export default function LandingPage() {
       csvData.split("")[5] !== "," ||
       csvData.split("")[549] !== "時"
     )
-      return result;
+    {console.log("first check error")  
+    return result;}
     else if (
       csvData.split(/\n/)[5].split(",")[1] === "GAMBOL" &&
       csvData.split(/\n/)[1].split(",")[1] === "22DUNK" &&
