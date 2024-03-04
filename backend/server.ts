@@ -4,7 +4,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require("mongoose");
-//import {uriSecret} from "./config.ts"
+import {uriSecret} from "./config.ts"
 import { Room } from "./Room";
 import {
   Song,
