@@ -28,7 +28,7 @@ const roomList: string[] = [];
 
 const io = new Server(server, {
   cors: {
-    origin: "https://iidxrequestrooms.onrender.com/",
+    origin: "https://iidxrequestrooms.onrender.com",
     methods: ["GET", "POST"],
   },
 });
