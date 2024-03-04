@@ -4,6 +4,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const port = process.env.PORT || 3001
 import {uriSecret} from "./config"
 import { Room } from "./Room";
 import {
@@ -282,4 +283,4 @@ io.on("connection", (socket: any) => {
 
 });
 
-server.listen(10000, () => console.log("app is listening on port 10000"));
+server.listen(port, () => console.log("app is listening on port ", port));
