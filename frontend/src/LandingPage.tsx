@@ -73,7 +73,6 @@ export default function LandingPage() {
         setIsLoading(false);
       } else {
         setLoadingTime(loadingTime - 1);
-        console.log("loading")
       }
     }, 1000);
     return () => {
@@ -105,8 +104,7 @@ export default function LandingPage() {
       csvData.split("")[5] !== "," ||
       csvData.split("")[549] !== "時"
     )
-    {console.log("first check error")  
-    return result;}
+    return result;
     else if (
       csvData.split(/\n/)[5].split(",")[1] === "GAMBOL" &&
       csvData.split(/\n/)[1].split(",")[1] === "22DUNK" &&
@@ -129,18 +127,15 @@ export default function LandingPage() {
 
   function onLobbyJoinRooms(data: any) {
     if (data.roomList === undefined) {
-      console.log(data.roomList, "empty roomlist");
       return
     }
     else {
       setRoomList(data.roomList);
-      console.log(data.roomList, "ROOMLIST UPDATE ON ARRIVAL");
     }
   }
 
   function onRoomCreated(data: any) {
     setRoomList(data.roomList);
-    console.log(data.roomList, "ROOMLIST UPDATE ON CREATION");
   }
 
   function createRoom() {

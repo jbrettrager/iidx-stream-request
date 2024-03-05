@@ -284,7 +284,6 @@ export default function HostView(props: any) {
   function handleClickDifficulties(e: React.MouseEvent<HTMLDivElement>) {
     let newDifficulties = [...difficulties];
     let target = e.currentTarget.className.split(" ")[1].split("-")[0];
-    console.log(target);
     if (target === "beginner") {
       newDifficulties[0]["beginner"] = !newDifficulties[0]["beginner"];
     } else if (target === "normal") {
@@ -314,7 +313,6 @@ export default function HostView(props: any) {
   }
 
   function handleCooldownChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.value);
     setCooldown(parseInt(e.target.value));
   }
 
