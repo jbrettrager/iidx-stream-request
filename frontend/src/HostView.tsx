@@ -212,6 +212,7 @@ export default function HostView(props: any) {
   }
   function onInitialRoomUpdatesCooldown(data) {
     setCooldown(data.cooldown);
+    setCurrentCooldown(data.cooldown)
   }
   function onInitialRoomUpdatesRequests(data) {
     setRequestList(data.requestList);
@@ -221,6 +222,7 @@ export default function HostView(props: any) {
   }
   function onUpdateCooldown(data) {
     setCooldown(data.cooldown);
+    setCurrentCooldown(data.cooldown)
   }
   function onUpdateStreamView(data) {
     setIsColumn(data.isColumn);
