@@ -253,7 +253,7 @@ io.on("connection", (socket: any) => {
       const currentRequestsAwait = await Room.findOne({roomName: data.roomName})
       const currentRequests = currentRequestsAwait["requests"]
       const query = {roomName: data.roomName}
-      const update = {requests: currentRequests}
+      const update = {requests: data.requestList}
       await Room.findOneAndUpdate(query, update)
       io.to(data.roomName).emit("update_requests", {
         requestList: data.requestList,
