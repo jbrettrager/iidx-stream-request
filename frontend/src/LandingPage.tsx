@@ -105,12 +105,7 @@ export default function LandingPage() {
       csvData.split("")[549] !== "時"
     )
     return result;
-    else if (
-      csvData.split(/\n/)[5].split(",")[1] === "GAMBOL" &&
-      csvData.split(/\n/)[1].split(",")[1] === "22DUNK" &&
-      csvData.split(/\n/)[2].split(",")[1] === "5.1.1."
-    )
-      result = true;
+    else result = true;
     return result;
   }
 

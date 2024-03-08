@@ -11,7 +11,7 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />}></Route>
+      <Route path="/8844eb6bfd1d1ef13cd8765087" element={<LandingPage />}></Route>
       <Route path="/host/:roomName" element={<HostView />}></Route>
       <Route path="/guest/:roomName" element={<GuestView  />}></Route>
       <Route path="/streamview/:roomName" element={<StreamView  />}></Route>
