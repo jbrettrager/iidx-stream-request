@@ -153,7 +153,7 @@ export default function GuestView(props: any) {
     },
     pageText: {
       en: "Page",
-      jp: "ページ"
+      jp: "Page"
     }
 
   }
